@@ -1,0 +1,135 @@
+{
+  "schema": 1,
+  "feed": "c2",
+  "name": "C2 Infrastructure",
+  "description": "Botnet and malware command & control servers.",
+  "status": "active",
+  "generated": "2026-08-04T18:29:04Z",
+  "version": "sha256:e7c6518890c11295db829f96ff79bc34df739d8bd3457f6e52c424245baafbad",
+  "sources": {
+    "count": 4,
+    "by_status": {
+      "cache": 4
+    },
+    "stats": [
+      {
+        "name": "feodo_tracker_full",
+        "category": "c2",
+        "url": "https://feodotracker.abuse.ch/downloads/ipblocklist.txt",
+        "priority": 10,
+        "status": "cache",
+        "detail": "fresh cache (152s old < interval 3600s)",
+        "fetched": false,
+        "raw_bytes": 565,
+        "candidates": 5,
+        "invalid_discarded": 0,
+        "within_source_duplicates": 0,
+        "ipv4": 5,
+        "ipv6": 0,
+        "cidrs_v4": 0,
+        "cidrs_v6": 0,
+        "total": 5,
+        "duration_ms": 0
+      },
+      {
+        "name": "feodo_tracker_recommended",
+        "category": "c2",
+        "url": "https://feodotracker.abuse.ch/downloads/ipblocklist_recommended.txt",
+        "priority": 10,
+        "status": "cache",
+        "detail": "fresh cache (152s old < interval 3600s)",
+        "fetched": false,
+        "raw_bytes": 503,
+        "candidates": 1,
+        "invalid_discarded": 0,
+        "within_source_duplicates": 0,
+        "ipv4": 1,
+        "ipv6": 0,
+        "cidrs_v4": 0,
+        "cidrs_v6": 0,
+        "total": 1,
+        "duration_ms": 0
+      },
+      {
+        "name": "threatfox_iocs",
+        "category": "c2",
+        "url": "https://threatfox.abuse.ch/downloads/hostfile/",
+        "priority": 10,
+        "status": "cache",
+        "detail": "fresh cache (147s old < interval 3600s)",
+        "fetched": false,
+        "raw_bytes": 1713149,
+        "candidates": 49804,
+        "invalid_discarded": 49797,
+        "within_source_duplicates": 0,
+        "ipv4": 7,
+        "ipv6": 0,
+        "cidrs_v4": 0,
+        "cidrs_v6": 0,
+        "total": 7,
+        "duration_ms": 0
+      },
+      {
+        "name": "botvrij_c2",
+        "category": "c2",
+        "url": "https://www.botvrij.eu/data/ioclist.ip-dst.raw",
+        "priority": 20,
+        "status": "cache",
+        "detail": "fresh cache (152s old < interval 21600s)",
+        "fetched": false,
+        "raw_bytes": 53,
+        "candidates": 4,
+        "invalid_discarded": 0,
+        "within_source_duplicates": 0,
+        "ipv4": 4,
+        "ipv6": 0,
+        "cidrs_v4": 0,
+        "cidrs_v6": 0,
+        "total": 4,
+        "duration_ms": 0
+      }
+    ]
+  },
+  "totals": {
+    "ipv4": 16,
+    "ipv6": 0,
+    "cidrs_v4": 0,
+    "cidrs_v6": 0,
+    "all": 16
+  },
+  "processing": {
+    "duplicates_removed": 1,
+    "invalid_discarded": 49797,
+    "duration_ms": 0
+  },
+  "files": {
+    "ipv4": {
+      "path": "feeds/c2/ipv4.txt",
+      "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/c2/ipv4.txt",
+      "entries": 16,
+      "sha256": "9f42afc3424da1255037c121b5a0e226b8a8051ef5e28387cce75c9def51a0e3",
+      "bytes": 365
+    },
+    "ipv6": {
+      "path": "feeds/c2/ipv6.txt",
+      "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/c2/ipv6.txt",
+      "entries": 0,
+      "sha256": "a05601270542e12004330ae73f91985d9eaeee8d2b028e18d16a9223a1e6db0d",
+      "bytes": 141
+    },
+    "ipv4-cidrs": {
+      "path": "feeds/c2/ipv4-cidrs.txt",
+      "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/c2/ipv4-cidrs.txt",
+      "entries": 0,
+      "sha256": "a74c593696c6873227acec0f235867621364ba0f67fa86914c5c32b650f0a057",
+      "bytes": 143
+    },
+    "ipv6-cidrs": {
+      "path": "feeds/c2/ipv6-cidrs.txt",
+      "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/c2/ipv6-cidrs.txt",
+      "entries": 0,
+      "sha256": "0fe55c6e33cd65fb4d75dacb2c9d2008e88038210be7510e3a19f6f87768a0b5",
+      "bytes": 143
+    }
+  }
+}

@@ -1,0 +1,8 @@
+[Unit]
+Description=Sync OpenShield botnet/proxy blocklists into XDP ban maps
+After=network-online.target openshield-loader.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/openshield-blocklist-sync

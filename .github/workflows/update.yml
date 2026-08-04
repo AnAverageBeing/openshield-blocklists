@@ -1,0 +1,77 @@
+name: Update feeds
+
+on:
+  schedule:
+    # Every 3 hours (off the :00 herd mark).
+    - cron: "41 */3 * * *"
+  workflow_dispatch:
+    inputs:
+      force_refresh:
+        description: "Refetch all sources, ignoring update intervals"
+        type: boolean
+        default: false
+      create_release:
+        description: "Create a GitHub release with notes after the update"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-feeds
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install builder
+        run: pip install -e .
+
+      - name: Validate configuration
+        run: openshield-feeds validate-config
+
+      - name: Build feeds
+        env:
+          # Optional. Without this secret the AbuseIPDB API source is skipped
+          # (the FireHOL AbuseIPDB mirror still provides coverage).
+          ABUSEIPDB_API_KEY: ${{ secrets.ABUSEIPDB_API_KEY }}
+          FORCE_REFRESH: ${{ inputs.force_refresh }}
+        run: |
+          ARGS=()
+          [ "$FORCE_REFRESH" = "true" ] && ARGS+=(--force)
+          openshield-feeds build "${ARGS[@]}"
+
+      - name: Verify outputs
+        run: openshield-feeds verify
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes — feeds are up to date"
+          else
+            git commit -m "chore(feeds): update $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            git push
+          fi
+
+      - name: Create release
+        if: github.event_name == 'workflow_dispatch' && inputs.create_release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="feeds-$(date -u +%Y%m%d-%H%M)"
+          TOTAL=$(python3 -c "import json;print(json.load(open('metadata/manifest.json'))['totals']['all'])")
+          gh release create "$TAG" \
+            --title "Feeds $(date -u +%Y-%m-%d %H:%M UTC)" \
+            --notes "Automated feed build: **${TOTAL}** unique entries. Per-feed statistics: metadata/manifest.json"

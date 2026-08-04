@@ -1,0 +1,10 @@
+[Unit]
+Description=Refresh OpenShield blocklists every 6 hours
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=6h
+RandomizedDelaySec=900
+
+[Install]
+WantedBy=timers.target

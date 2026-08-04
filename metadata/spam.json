@@ -1,0 +1,116 @@
+{
+  "schema": 1,
+  "feed": "spam",
+  "name": "Spam Sources",
+  "description": "Forum, blog, and web-form spam sources.",
+  "status": "active",
+  "generated": "2026-08-04T18:27:53Z",
+  "version": "sha256:fab6ef2bcb4f44db8a93287dc3458c7b1072d511f2469a383b7c56cd1891b015",
+  "sources": {
+    "count": 3,
+    "by_status": {
+      "ok": 3
+    },
+    "stats": [
+      {
+        "name": "stopforumspam_toxic",
+        "category": "spam",
+        "url": "https://www.stopforumspam.com/downloads/toxic_ip_cidr.txt",
+        "priority": 30,
+        "status": "ok",
+        "detail": "",
+        "fetched": true,
+        "raw_bytes": 960,
+        "candidates": 60,
+        "invalid_discarded": 0,
+        "within_source_duplicates": 0,
+        "ipv4": 0,
+        "ipv6": 0,
+        "cidrs_v4": 60,
+        "cidrs_v6": 0,
+        "total": 60,
+        "duration_ms": 2
+      },
+      {
+        "name": "php_spammers_30d",
+        "category": "spam",
+        "url": "https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/php_spammers_30d.ipset",
+        "priority": 40,
+        "status": "ok",
+        "detail": "",
+        "fetched": true,
+        "raw_bytes": 18632,
+        "candidates": 1252,
+        "invalid_discarded": 0,
+        "within_source_duplicates": 0,
+        "ipv4": 1232,
+        "ipv6": 0,
+        "cidrs_v4": 20,
+        "cidrs_v6": 0,
+        "total": 1252,
+        "duration_ms": 24
+      },
+      {
+        "name": "stopforumspam_30d",
+        "category": "spam",
+        "url": "https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/stopforumspam_30d.ipset",
+        "priority": 40,
+        "status": "ok",
+        "detail": "",
+        "fetched": true,
+        "raw_bytes": 680437,
+        "candidates": 47554,
+        "invalid_discarded": 1,
+        "within_source_duplicates": 0,
+        "ipv4": 47553,
+        "ipv6": 0,
+        "cidrs_v4": 0,
+        "cidrs_v6": 0,
+        "total": 47553,
+        "duration_ms": 886
+      }
+    ]
+  },
+  "totals": {
+    "ipv4": 48637,
+    "ipv6": 0,
+    "cidrs_v4": 80,
+    "cidrs_v6": 0,
+    "all": 48717
+  },
+  "processing": {
+    "duplicates_removed": 38,
+    "invalid_discarded": 1,
+    "duration_ms": 4
+  },
+  "files": {
+    "ipv4": {
+      "path": "feeds/spam/ipv4.txt",
+      "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/spam/ipv4.txt",
+      "entries": 48637,
+      "sha256": "8006c983533ad21f90f834eff18f6d039deda0fdadc157aa11b63c619b9c4ac3",
+      "bytes": 695054
+    },
+    "ipv6": {
+      "path": "feeds/spam/ipv6.txt",
+      "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/spam/ipv6.txt",
+      "entries": 0,
+      "sha256": "392d17742f1e95a8d2cb13812e12d2fd39bc3f22796c57c62e68f409d7c03672",
+      "bytes": 138
+    },
+    "ipv4-cidrs": {
+      "path": "feeds/spam/ipv4-cidrs.txt",
+      "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/spam/ipv4-cidrs.txt",
+      "entries": 80,
+      "sha256": "eb6f45636589bcb357dda9e5012b124ce995bf6c5b3ef24e3e56c18385e772b2",
+      "bytes": 1445
+    },
+    "ipv6-cidrs": {
+      "path": "feeds/spam/ipv6-cidrs.txt",
+      "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/spam/ipv6-cidrs.txt",
+      "entries": 0,
+      "sha256": "21cc0d31cf2ad92d60783ea6f94a421fb68496baf8f563f32fb6a0f338d1ca56",
+      "bytes": 140
+    }
+  }
+}

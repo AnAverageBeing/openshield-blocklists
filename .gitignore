@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+build/
+dist/
+
+# Freshness sidecars (fetched_at) are runner-local state — committing them
+# would dirty every run. The raw bodies themselves ARE committed as the
+# last-good fallback. processed/ is fully content-derived and committed.
+raw/*.json

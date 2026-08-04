@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openshield-feeds"
+version = "1.0.0"
+description = "Deterministic threat-intelligence feed builder for OpenShield-XDP"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+
+[project.scripts]
+openshield-feeds = "openshield_feeds.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

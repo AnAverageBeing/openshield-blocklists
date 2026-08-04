@@ -1,0 +1,667 @@
+{
+  "comment": "Source registry \u2014 the ONLY file you edit to add/remove/tune feeds. Fields: name (unique id, used for cache files), url, category (must exist in categories.json), format (auto|dshield|abuseipdb, default auto), update_interval (seconds between refetches, default 10800), priority (lower = more trusted, reserved for future scoring, default 100), enabled (default true), validation (optional: min_entries = warn below this count, allow_non_global = keep private/reserved ranges for this source). Ports are always stripped; only bare source IPs and CIDRs are kept.",
+  "sources": [
+    {
+      "name": "feodo_tracker_full",
+      "url": "https://feodotracker.abuse.ch/downloads/ipblocklist.txt",
+      "category": "c2",
+      "update_interval": 3600,
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "name": "feodo_tracker_recommended",
+      "url": "https://feodotracker.abuse.ch/downloads/ipblocklist_recommended.txt",
+      "category": "c2",
+      "update_interval": 3600,
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "name": "threatfox_iocs",
+      "url": "https://threatfox.abuse.ch/downloads/hostfile/",
+      "category": "c2",
+      "update_interval": 3600,
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "name": "botvrij_c2",
+      "url": "https://www.botvrij.eu/data/ioclist.ip-dst.raw",
+      "category": "c2",
+      "update_interval": 21600,
+      "priority": 20,
+      "enabled": true
+    },
+    {
+      "name": "urlhaus_malware_urls",
+      "url": "https://urlhaus.abuse.ch/downloads/text/",
+      "category": "malware",
+      "update_interval": 3600,
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "name": "malc0de_firehol",
+      "url": "https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/iblocklist_malc0de.netset",
+      "category": "malware",
+      "update_interval": 86400,
+      "priority": 30,
+      "enabled": true
+    },
+    {
+      "name": "botscout_30d",
+      "url": "https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/botscout_30d.ipset",
+      "category": "botnets",
+      "update_interval": 86400,
+      "priority": 30,
+      "enabled": true
+    },
+    {
+      "name": "cins_army",
+      "url": "https://cinsscore.com/list/ci-badguys.txt",
+      "category": "scanners",
+      "update_interval": 3600,
+      "priority": 20,
+      "enabled": true,
+      "validation": {
+        "min_entries": 1000
+      }
+    },
+    {
+      "name": "dshield_block",
+      "url": "https://dshield.org/block.txt",
+      "category": "scanners",
+      "format": "dshield",
+      "update_interval": 86400,
+      "priority": 20,
+      "enabled": true,
+      "validation": {
+        "min_entries": 5
+      }
+    },
+    {
+      "name": "dataplane_sipinvitation",
+      "url": "https://dataplane.org/sipinvitation.txt",
+      "category": "scanners",
+      "update_interval": 43200,
+      "priority": 40,
+      "enabled": true
+    },
+    {
+      "name": "ipsum_stamparm",
+      "url": "https://raw.githubusercontent.com/stamparm/ipsum/master/ipsum.txt",
+      "category": "abuse",
+      "update_interval": 21600,
+      "priority": 10,
+      "enabled": true,
+      "validation": {
+        "min_entries": 50000
+      }
+    },
+    {
+      "name": "blocklist_de_all",
+      "url": "https://lists.blocklist.de/lists/all.txt",
+      "category": "abuse",
+      "update_interval": 3600,
+      "priority": 20,
+      "enabled": true,
+      "validation": {
+        "min_entries": 5000
+      }
+    },
+    {
+      "name": "blocklist_net_ua",
+      "url": "https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/blocklist_net_ua.ipset",
+      "category": "abuse",
+      "update_interval": 86400,
+      "priority": 40,
+      "enabled": true
+    },
+    {
+      "name": "greensnow",
+      "url": "https://blocklist.greensnow.co/greensnow.txt",
+      "category": "abuse",
+      "update_interval": 3600,
+      "priority": 30,
+      "enabled": true,
+      "validation": {
+        "min_entries": 500
+      }
+    },
+    {
+      "name": "binary_defense_banlist",
+      "url": "https://www.binarydefense.com/banlist.txt",
+      "category": "abuse",
+      "update_interval": 21600,
+      "priority": 20,
+      "enabled": true,
+      "validation": {
+        "min_entries": 100
+      }
+    },
+    {
+      "name": "darklist_de",
+      "url": "https://www.darklist.de/raw.php",
+      "category": "abuse",
+      "update_interval": 21600,
+      "priority": 40,
+      "enabled": true
+    },
+    {
+      "name": "firehol_level2",
+      "url": "https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/firehol_level2.netset",
+      "category": "abuse",
+      "update_interval": 86400,
+      "priority": 30,
+      "enabled": true,
+      "validation": {
+        "min_entries": 5000
+      }
+    },
+    {
+      "name": "firehol_level3",
+      "url": "https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/firehol_level3.netset",
+      "category": "abuse",
+      "update_interval": 86400,
+      "priority": 50,
+      "enabled": true,
+      "validation": {
+        "min_entries": 5000
+      }
+    },
+    {
+      "name": "firehol_abusers_30d",
+      "url": "https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/firehol_abusers_30d.netset",
+      "category": "abuse",
+      "update_interval": 86400,
+      "priority": 40,
+      "enabled": true
+    },
+    {
+      "name": "abuseipdb_firehol_30d",
+      "url": "https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/abuseipdb_30d.ipset",
+      "category": "abuse",
+      "update_interval": 86400,
+      "priority": 20,
+      "enabled": true,
+      "validation": {
+        "min_entries": 1000
+      }
+    },
+    {
+      "name": "voipbl",
+      "url": "http://voipbl.org/update/",
+      "category": "abuse",
+      "update_interval": 21600,
+      "priority": 40,
+      "enabled": true,
+      "validation": {
+        "min_entries": 1000
+      }
+    },
+    {
+      "name": "abuseipdb_blacklist",
+      "url": "https://api.abuseipdb.com/api/v2/blacklist?confidenceMinimum=90&limit=20000&plaintext",
+      "category": "abuse",
+      "format": "abuseipdb",
+      "update_interval": 21600,
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "name": "stopforumspam_toxic",
+      "url": "https://www.stopforumspam.com/downloads/toxic_ip_cidr.txt",
+      "category": "spam",
+      "update_interval": 21600,
+      "priority": 30,
+      "enabled": true
+    },
+    {
+      "name": "stopforumspam_30d",
+      "url": "https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/stopforumspam_30d.ipset",
+      "category": "spam",
+      "update_interval": 86400,
+      "priority": 40,
+      "enabled": true
+    },
+    {
+      "name": "php_spammers_30d",
+      "url": "https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/php_spammers_30d.ipset",
+      "category": "spam",
+      "update_interval": 86400,
+      "priority": 40,
+      "enabled": true
+    },
+    {
+      "name": "bruteforceblocker",
+      "url": "https://danger.rulez.sk/projects/bruteforceblocker/blist.php",
+      "category": "bruteforce",
+      "update_interval": 21600,
+      "priority": 30,
+      "enabled": true,
+      "validation": {
+        "min_entries": 100
+      }
+    },
+    {
+      "name": "blocklist_de_strongips",
+      "url": "https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/blocklist_de_strongips.ipset",
+      "category": "bruteforce",
+      "update_interval": 86400,
+      "priority": 30,
+      "enabled": true
+    },
+    {
+      "name": "dataplane_sshpwauth",
+      "url": "https://dataplane.org/sshpwauth.txt",
+      "category": "ssh-attackers",
+      "update_interval": 43200,
+      "priority": 30,
+      "enabled": true,
+      "validation": {
+        "min_entries": 1000
+      }
+    },
+    {
+      "name": "blocklist_de_ssh",
+      "url": "https://lists.blocklist.de/lists/ssh.txt",
+      "category": "ssh-attackers",
+      "update_interval": 3600,
+      "priority": 30,
+      "enabled": true,
+      "validation": {
+        "min_entries": 500
+      }
+    },
+    {
+      "name": "blocklist_de_bruteforcelogin",
+      "url": "https://lists.blocklist.de/lists/bruteforcelogin.txt",
+      "category": "credential-stuffing",
+      "update_interval": 3600,
+      "priority": 30,
+      "enabled": true,
+      "validation": {
+        "min_entries": 100
+      }
+    },
+    {
+      "name": "cruzit_web_attacks",
+      "url": "https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/iblocklist_cruzit_web_attacks.netset",
+      "category": "web-exploit-scanners",
+      "update_interval": 86400,
+      "priority": 40,
+      "enabled": true
+    },
+    {
+      "name": "firehol_webserver",
+      "url": "https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/firehol_webserver.netset",
+      "category": "web-exploit-scanners",
+      "update_interval": 86400,
+      "priority": 40,
+      "enabled": true
+    },
+    {
+      "name": "blocklist_de_bots",
+      "url": "https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/blocklist_de_bots.ipset",
+      "category": "web-exploit-scanners",
+      "update_interval": 86400,
+      "priority": 40,
+      "enabled": true
+    },
+    {
+      "name": "emerging_threats_compromised",
+      "url": "https://rules.emergingthreats.net/blockrules/compromised-ips.txt",
+      "category": "exploited-infrastructure",
+      "update_interval": 3600,
+      "priority": 20,
+      "enabled": true,
+      "validation": {
+        "min_entries": 100
+      }
+    },
+    {
+      "name": "emerging_threats_block",
+      "url": "https://rules.emergingthreats.net/fwrules/emerging-Block-IPs.txt",
+      "category": "exploited-infrastructure",
+      "update_interval": 3600,
+      "priority": 20,
+      "enabled": true,
+      "validation": {
+        "min_entries": 500
+      }
+    },
+    {
+      "name": "spamhaus_drop",
+      "url": "https://www.spamhaus.org/drop/drop.txt",
+      "category": "high-risk-networks",
+      "update_interval": 3600,
+      "priority": 10,
+      "enabled": true,
+      "validation": {
+        "min_entries": 500
+      }
+    },
+    {
+      "name": "spamhaus_dropv6",
+      "url": "https://www.spamhaus.org/drop/dropv6.txt",
+      "category": "high-risk-networks",
+      "update_interval": 3600,
+      "priority": 10,
+      "enabled": true,
+      "validation": {
+        "min_entries": 10
+      }
+    },
+    {
+      "name": "thespeedx_http",
+      "url": "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/http.txt",
+      "category": "http-proxies",
+      "update_interval": 21600,
+      "priority": 60,
+      "enabled": true,
+      "validation": {
+        "min_entries": 500
+      }
+    },
+    {
+      "name": "monosans_http",
+      "url": "https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/http.txt",
+      "category": "http-proxies",
+      "update_interval": 3600,
+      "priority": 60,
+      "enabled": true
+    },
+    {
+      "name": "proxifly_http",
+      "url": "https://raw.githubusercontent.com/proxifly/free-proxy-list/main/proxies/protocols/http/data.txt",
+      "category": "http-proxies",
+      "update_interval": 3600,
+      "priority": 60,
+      "enabled": true
+    },
+    {
+      "name": "proxifly_https",
+      "url": "https://raw.githubusercontent.com/proxifly/free-proxy-list/main/proxies/protocols/https/data.txt",
+      "category": "http-proxies",
+      "update_interval": 3600,
+      "priority": 60,
+      "enabled": true
+    },
+    {
+      "name": "roosterkid_https",
+      "url": "https://raw.githubusercontent.com/roosterkid/openproxylist/main/HTTPS_RAW.txt",
+      "category": "http-proxies",
+      "update_interval": 21600,
+      "priority": 60,
+      "enabled": true
+    },
+    {
+      "name": "jetkai_http",
+      "url": "https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/proxies-http.txt",
+      "category": "http-proxies",
+      "update_interval": 21600,
+      "priority": 60,
+      "enabled": true
+    },
+    {
+      "name": "jetkai_https",
+      "url": "https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/proxies-https.txt",
+      "category": "http-proxies",
+      "update_interval": 21600,
+      "priority": 60,
+      "enabled": true
+    },
+    {
+      "name": "shiftytr_http",
+      "url": "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/http.txt",
+      "category": "http-proxies",
+      "update_interval": 21600,
+      "priority": 70,
+      "enabled": true
+    },
+    {
+      "name": "shiftytr_https",
+      "url": "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/https.txt",
+      "category": "http-proxies",
+      "update_interval": 21600,
+      "priority": 70,
+      "enabled": true
+    },
+    {
+      "name": "zaeem20_http",
+      "url": "https://raw.githubusercontent.com/Zaeem20/FREE_PROXIES_LIST/master/http.txt",
+      "category": "http-proxies",
+      "update_interval": 21600,
+      "priority": 70,
+      "enabled": true
+    },
+    {
+      "name": "zaeem20_https",
+      "url": "https://raw.githubusercontent.com/Zaeem20/FREE_PROXIES_LIST/master/https.txt",
+      "category": "http-proxies",
+      "update_interval": 21600,
+      "priority": 70,
+      "enabled": true
+    },
+    {
+      "name": "proxyscrape_http",
+      "url": "https://api.proxyscrape.com/v2/?request=getproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all",
+      "category": "http-proxies",
+      "update_interval": 3600,
+      "priority": 60,
+      "enabled": true
+    },
+    {
+      "name": "sunny9577_proxies",
+      "url": "https://raw.githubusercontent.com/sunny9577/proxy-scraper/master/proxies.txt",
+      "category": "http-proxies",
+      "update_interval": 21600,
+      "priority": 70,
+      "enabled": true
+    },
+    {
+      "name": "clarketm_proxy",
+      "url": "https://raw.githubusercontent.com/clarketm/proxy-list/master/proxy-list-raw.txt",
+      "category": "http-proxies",
+      "update_interval": 21600,
+      "priority": 70,
+      "enabled": true
+    },
+    {
+      "name": "firehol_ssl_proxies_30d",
+      "url": "https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/sslproxies_30d.ipset",
+      "category": "http-proxies",
+      "update_interval": 86400,
+      "priority": 50,
+      "enabled": true
+    },
+    {
+      "name": "thespeedx_socks4",
+      "url": "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/socks4.txt",
+      "category": "socks4-proxies",
+      "update_interval": 21600,
+      "priority": 60,
+      "enabled": true
+    },
+    {
+      "name": "monosans_socks4",
+      "url": "https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/socks4.txt",
+      "category": "socks4-proxies",
+      "update_interval": 3600,
+      "priority": 60,
+      "enabled": true
+    },
+    {
+      "name": "proxifly_socks4",
+      "url": "https://raw.githubusercontent.com/proxifly/free-proxy-list/main/proxies/protocols/socks4/data.txt",
+      "category": "socks4-proxies",
+      "update_interval": 3600,
+      "priority": 60,
+      "enabled": true
+    },
+    {
+      "name": "roosterkid_socks4",
+      "url": "https://raw.githubusercontent.com/roosterkid/openproxylist/main/SOCKS4_RAW.txt",
+      "category": "socks4-proxies",
+      "update_interval": 21600,
+      "priority": 60,
+      "enabled": true
+    },
+    {
+      "name": "jetkai_socks4",
+      "url": "https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/proxies-socks4.txt",
+      "category": "socks4-proxies",
+      "update_interval": 21600,
+      "priority": 60,
+      "enabled": true
+    },
+    {
+      "name": "shiftytr_socks4",
+      "url": "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/socks4.txt",
+      "category": "socks4-proxies",
+      "update_interval": 21600,
+      "priority": 70,
+      "enabled": true
+    },
+    {
+      "name": "zaeem20_socks4",
+      "url": "https://raw.githubusercontent.com/Zaeem20/FREE_PROXIES_LIST/master/socks4.txt",
+      "category": "socks4-proxies",
+      "update_interval": 21600,
+      "priority": 70,
+      "enabled": true
+    },
+    {
+      "name": "proxyscrape_socks4",
+      "url": "https://api.proxyscrape.com/v2/?request=getproxies&protocol=socks4&timeout=10000&country=all",
+      "category": "socks4-proxies",
+      "update_interval": 3600,
+      "priority": 60,
+      "enabled": true
+    },
+    {
+      "name": "thespeedx_socks5",
+      "url": "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/socks5.txt",
+      "category": "socks5-proxies",
+      "update_interval": 21600,
+      "priority": 60,
+      "enabled": true
+    },
+    {
+      "name": "monosans_socks5",
+      "url": "https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/socks5.txt",
+      "category": "socks5-proxies",
+      "update_interval": 3600,
+      "priority": 60,
+      "enabled": true
+    },
+    {
+      "name": "proxifly_socks5",
+      "url": "https://raw.githubusercontent.com/proxifly/free-proxy-list/main/proxies/protocols/socks5/data.txt",
+      "category": "socks5-proxies",
+      "update_interval": 3600,
+      "priority": 60,
+      "enabled": true
+    },
+    {
+      "name": "roosterkid_socks5",
+      "url": "https://raw.githubusercontent.com/roosterkid/openproxylist/main/SOCKS5_RAW.txt",
+      "category": "socks5-proxies",
+      "update_interval": 21600,
+      "priority": 60,
+      "enabled": true
+    },
+    {
+      "name": "jetkai_socks5",
+      "url": "https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/proxies-socks5.txt",
+      "category": "socks5-proxies",
+      "update_interval": 21600,
+      "priority": 60,
+      "enabled": true
+    },
+    {
+      "name": "shiftytr_socks5",
+      "url": "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/socks5.txt",
+      "category": "socks5-proxies",
+      "update_interval": 21600,
+      "priority": 70,
+      "enabled": true
+    },
+    {
+      "name": "zaeem20_socks5",
+      "url": "https://raw.githubusercontent.com/Zaeem20/FREE_PROXIES_LIST/master/socks5.txt",
+      "category": "socks5-proxies",
+      "update_interval": 21600,
+      "priority": 70,
+      "enabled": true
+    },
+    {
+      "name": "hookzof_socks5",
+      "url": "https://raw.githubusercontent.com/hookzof/socks5_list/master/proxy.txt",
+      "category": "socks5-proxies",
+      "update_interval": 86400,
+      "priority": 70,
+      "enabled": true
+    },
+    {
+      "name": "proxyscrape_socks5",
+      "url": "https://api.proxyscrape.com/v2/?request=getproxies&protocol=socks5&timeout=10000&country=all",
+      "category": "socks5-proxies",
+      "update_interval": 3600,
+      "priority": 60,
+      "enabled": true
+    },
+    {
+      "name": "firehol_socks_proxy_30d",
+      "url": "https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/socks_proxy_30d.ipset",
+      "category": "socks5-proxies",
+      "update_interval": 86400,
+      "priority": 50,
+      "enabled": true
+    },
+    {
+      "name": "tor_exit_bulk",
+      "url": "https://check.torproject.org/torbulkexitlist",
+      "category": "tor-exit-nodes",
+      "update_interval": 3600,
+      "priority": 30,
+      "enabled": true,
+      "validation": {
+        "min_entries": 500
+      }
+    },
+    {
+      "name": "tor_exit_secops",
+      "url": "https://raw.githubusercontent.com/SecOps-Institute/Tor-IP-Addresses/master/tor-exit-nodes.lst",
+      "category": "tor-exit-nodes",
+      "update_interval": 21600,
+      "priority": 40,
+      "enabled": true
+    },
+    {
+      "name": "tor_exits_firehol_30d",
+      "url": "https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/tor_exits_30d.ipset",
+      "category": "tor-exit-nodes",
+      "update_interval": 86400,
+      "priority": 40,
+      "enabled": true
+    },
+    {
+      "name": "dm_tor_firehol",
+      "url": "https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/dm_tor.ipset",
+      "category": "tor-exit-nodes",
+      "update_interval": 86400,
+      "priority": 40,
+      "enabled": true
+    },
+    {
+      "name": "et_tor_firehol",
+      "url": "https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/et_tor.ipset",
+      "category": "tor-exit-nodes",
+      "update_interval": 86400,
+      "priority": 40,
+      "enabled": true
+    }
+  ]
+}

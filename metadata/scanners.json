@@ -1,0 +1,116 @@
+{
+  "schema": 1,
+  "feed": "scanners",
+  "name": "Public Scanners",
+  "description": "Internet-wide scanners, probes, and top attacking hosts.",
+  "status": "active",
+  "generated": "2026-08-04T18:27:53Z",
+  "version": "sha256:8147b579f095f49f89873ac87e8fcb8ae7de403f8b2bfcf8af8d96f3cf667db2",
+  "sources": {
+    "count": 3,
+    "by_status": {
+      "ok": 3
+    },
+    "stats": [
+      {
+        "name": "cins_army",
+        "category": "scanners",
+        "url": "https://cinsscore.com/list/ci-badguys.txt",
+        "priority": 20,
+        "status": "ok",
+        "detail": "",
+        "fetched": true,
+        "raw_bytes": 215295,
+        "candidates": 15000,
+        "invalid_discarded": 0,
+        "within_source_duplicates": 0,
+        "ipv4": 15000,
+        "ipv6": 0,
+        "cidrs_v4": 0,
+        "cidrs_v6": 0,
+        "total": 15000,
+        "duration_ms": 275
+      },
+      {
+        "name": "dshield_block",
+        "category": "scanners",
+        "url": "https://dshield.org/block.txt",
+        "priority": 20,
+        "status": "ok",
+        "detail": "",
+        "fetched": true,
+        "raw_bytes": 2169,
+        "candidates": 20,
+        "invalid_discarded": 0,
+        "within_source_duplicates": 0,
+        "ipv4": 0,
+        "ipv6": 0,
+        "cidrs_v4": 20,
+        "cidrs_v6": 0,
+        "total": 20,
+        "duration_ms": 0
+      },
+      {
+        "name": "dataplane_sipinvitation",
+        "category": "scanners",
+        "url": "https://dataplane.org/sipinvitation.txt",
+        "priority": 40,
+        "status": "ok",
+        "detail": "",
+        "fetched": true,
+        "raw_bytes": 10306,
+        "candidates": 66,
+        "invalid_discarded": 0,
+        "within_source_duplicates": 0,
+        "ipv4": 66,
+        "ipv6": 0,
+        "cidrs_v4": 0,
+        "cidrs_v6": 0,
+        "total": 66,
+        "duration_ms": 4
+      }
+    ]
+  },
+  "totals": {
+    "ipv4": 14909,
+    "ipv6": 0,
+    "cidrs_v4": 20,
+    "cidrs_v6": 0,
+    "all": 14929
+  },
+  "processing": {
+    "duplicates_removed": 9,
+    "invalid_discarded": 0,
+    "duration_ms": 1
+  },
+  "files": {
+    "ipv4": {
+      "path": "feeds/scanners/ipv4.txt",
+      "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/scanners/ipv4.txt",
+      "entries": 14909,
+      "sha256": "4ba776ef9802976f9937d4010ba2ad399c8711700c1c3e6a3a5a53731cd68200",
+      "bytes": 214162
+    },
+    "ipv6": {
+      "path": "feeds/scanners/ipv6.txt",
+      "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/scanners/ipv6.txt",
+      "entries": 0,
+      "sha256": "97a8d63d4b699fecf11d09dc504a1813a567e5fa1e6160bb736bba681f89a2f8",
+      "bytes": 145
+    },
+    "ipv4-cidrs": {
+      "path": "feeds/scanners/ipv4-cidrs.txt",
+      "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/scanners/ipv4-cidrs.txt",
+      "entries": 20,
+      "sha256": "051be8e2452f215cd845643f909160d7fb3b1641cf8d02df666bb452b3bf40a4",
+      "bytes": 461
+    },
+    "ipv6-cidrs": {
+      "path": "feeds/scanners/ipv6-cidrs.txt",
+      "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/scanners/ipv6-cidrs.txt",
+      "entries": 0,
+      "sha256": "6f763ed408b984c564663af40890bdddddf0337f9443840b0d6c3191cc8be11d",
+      "bytes": 147
+    }
+  }
+}

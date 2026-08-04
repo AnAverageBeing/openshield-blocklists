@@ -1,0 +1,154 @@
+{
+  "schema": 1,
+  "feed": "tor-exit-nodes",
+  "name": "Tor Exit Nodes",
+  "description": "Tor network exit relays.",
+  "status": "active",
+  "generated": "2026-08-04T18:27:53Z",
+  "version": "sha256:7dd677f066a3332d7cc75d6fa6ebc1d17ee8491f7e4916ea13b0fa5743a5cba6",
+  "sources": {
+    "count": 5,
+    "by_status": {
+      "ok": 5
+    },
+    "stats": [
+      {
+        "name": "tor_exit_bulk",
+        "category": "tor-exit-nodes",
+        "url": "https://check.torproject.org/torbulkexitlist",
+        "priority": 30,
+        "status": "ok",
+        "detail": "",
+        "fetched": true,
+        "raw_bytes": 19804,
+        "candidates": 1400,
+        "invalid_discarded": 0,
+        "within_source_duplicates": 0,
+        "ipv4": 1400,
+        "ipv6": 0,
+        "cidrs_v4": 0,
+        "cidrs_v6": 0,
+        "total": 1400,
+        "duration_ms": 26
+      },
+      {
+        "name": "dm_tor_firehol",
+        "category": "tor-exit-nodes",
+        "url": "https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/dm_tor.ipset",
+        "priority": 40,
+        "status": "ok",
+        "detail": "",
+        "fetched": true,
+        "raw_bytes": 105381,
+        "candidates": 7533,
+        "invalid_discarded": 0,
+        "within_source_duplicates": 0,
+        "ipv4": 7533,
+        "ipv6": 0,
+        "cidrs_v4": 0,
+        "cidrs_v6": 0,
+        "total": 7533,
+        "duration_ms": 155
+      },
+      {
+        "name": "et_tor_firehol",
+        "category": "tor-exit-nodes",
+        "url": "https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/et_tor.ipset",
+        "priority": 40,
+        "status": "ok",
+        "detail": "",
+        "fetched": true,
+        "raw_bytes": 105722,
+        "candidates": 7550,
+        "invalid_discarded": 0,
+        "within_source_duplicates": 0,
+        "ipv4": 7550,
+        "ipv6": 0,
+        "cidrs_v4": 0,
+        "cidrs_v6": 0,
+        "total": 7550,
+        "duration_ms": 144
+      },
+      {
+        "name": "tor_exit_secops",
+        "category": "tor-exit-nodes",
+        "url": "https://raw.githubusercontent.com/SecOps-Institute/Tor-IP-Addresses/master/tor-exit-nodes.lst",
+        "priority": 40,
+        "status": "ok",
+        "detail": "",
+        "fetched": true,
+        "raw_bytes": 41003,
+        "candidates": 1746,
+        "invalid_discarded": 0,
+        "within_source_duplicates": 0,
+        "ipv4": 1127,
+        "ipv6": 619,
+        "cidrs_v4": 0,
+        "cidrs_v6": 0,
+        "total": 1746,
+        "duration_ms": 44
+      },
+      {
+        "name": "tor_exits_firehol_30d",
+        "category": "tor-exit-nodes",
+        "url": "https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/tor_exits_30d.ipset",
+        "priority": 40,
+        "status": "ok",
+        "detail": "",
+        "fetched": true,
+        "raw_bytes": 15002,
+        "candidates": 980,
+        "invalid_discarded": 0,
+        "within_source_duplicates": 0,
+        "ipv4": 870,
+        "ipv6": 0,
+        "cidrs_v4": 110,
+        "cidrs_v6": 0,
+        "total": 980,
+        "duration_ms": 22
+      }
+    ]
+  },
+  "totals": {
+    "ipv4": 7823,
+    "ipv6": 619,
+    "cidrs_v4": 110,
+    "cidrs_v6": 0,
+    "all": 8552
+  },
+  "processing": {
+    "duplicates_removed": 9951,
+    "invalid_discarded": 0,
+    "duration_ms": 1
+  },
+  "files": {
+    "ipv4": {
+      "path": "feeds/tor-exit-nodes/ipv4.txt",
+      "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/tor-exit-nodes/ipv4.txt",
+      "entries": 7823,
+      "sha256": "30eea12056789a26cc6bf98b538333f564b6890023c0b7ab073e06308016da33",
+      "bytes": 109027
+    },
+    "ipv6": {
+      "path": "feeds/tor-exit-nodes/ipv6.txt",
+      "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/tor-exit-nodes/ipv6.txt",
+      "entries": 619,
+      "sha256": "ae2247f039827b0d1a02dc23330d975b14c40a4eb4a8e6cc7aa935bf172c954e",
+      "bytes": 14916
+    },
+    "ipv4-cidrs": {
+      "path": "feeds/tor-exit-nodes/ipv4-cidrs.txt",
+      "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/tor-exit-nodes/ipv4-cidrs.txt",
+      "entries": 110,
+      "sha256": "1d51ab2c08f2765c77aec8c5ab5e806885e55440598a73f5ba27a33f5fc5a0aa",
+      "bytes": 2014
+    },
+    "ipv6-cidrs": {
+      "path": "feeds/tor-exit-nodes/ipv6-cidrs.txt",
+      "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/tor-exit-nodes/ipv6-cidrs.txt",
+      "entries": 0,
+      "sha256": "b5739257ec68f92948bc37d315c1a9e1efeff2a25503ba230fd4bd8b77a2995a",
+      "bytes": 152
+    }
+  }
+}

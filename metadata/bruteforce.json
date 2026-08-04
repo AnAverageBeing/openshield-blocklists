@@ -1,0 +1,97 @@
+{
+  "schema": 1,
+  "feed": "bruteforce",
+  "name": "Brute Force Sources",
+  "description": "IPs performing brute-force authentication attacks across services.",
+  "status": "active",
+  "generated": "2026-08-04T18:27:53Z",
+  "version": "sha256:17b8a2958d657c8c5beae2856a6554d09297a6501d783d8a096d8d2b877fd0e4",
+  "sources": {
+    "count": 2,
+    "by_status": {
+      "ok": 2
+    },
+    "stats": [
+      {
+        "name": "blocklist_de_strongips",
+        "category": "bruteforce",
+        "url": "https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/blocklist_de_strongips.ipset",
+        "priority": 30,
+        "status": "ok",
+        "detail": "",
+        "fetched": true,
+        "raw_bytes": 5686,
+        "candidates": 344,
+        "invalid_discarded": 0,
+        "within_source_duplicates": 0,
+        "ipv4": 344,
+        "ipv6": 0,
+        "cidrs_v4": 0,
+        "cidrs_v6": 0,
+        "total": 344,
+        "duration_ms": 6
+      },
+      {
+        "name": "bruteforceblocker",
+        "category": "bruteforce",
+        "url": "https://danger.rulez.sk/projects/bruteforceblocker/blist.php",
+        "priority": 30,
+        "status": "ok",
+        "detail": "",
+        "fetched": true,
+        "raw_bytes": 27118,
+        "candidates": 559,
+        "invalid_discarded": 0,
+        "within_source_duplicates": 0,
+        "ipv4": 559,
+        "ipv6": 0,
+        "cidrs_v4": 0,
+        "cidrs_v6": 0,
+        "total": 559,
+        "duration_ms": 10
+      }
+    ]
+  },
+  "totals": {
+    "ipv4": 902,
+    "ipv6": 0,
+    "cidrs_v4": 0,
+    "cidrs_v6": 0,
+    "all": 902
+  },
+  "processing": {
+    "duplicates_removed": 1,
+    "invalid_discarded": 0,
+    "duration_ms": 0
+  },
+  "files": {
+    "ipv4": {
+      "path": "feeds/bruteforce/ipv4.txt",
+      "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/bruteforce/ipv4.txt",
+      "entries": 902,
+      "sha256": "61d654d55f379901b7589b4cc39a38b9cd3a5ab68c0d0beedb3611daadf8ef59",
+      "bytes": 12833
+    },
+    "ipv6": {
+      "path": "feeds/bruteforce/ipv6.txt",
+      "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/bruteforce/ipv6.txt",
+      "entries": 0,
+      "sha256": "91db2247b146e82c2f0cbe691ac2f67cd042a5c33afbad6c48f08a911a8becd7",
+      "bytes": 151
+    },
+    "ipv4-cidrs": {
+      "path": "feeds/bruteforce/ipv4-cidrs.txt",
+      "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/bruteforce/ipv4-cidrs.txt",
+      "entries": 0,
+      "sha256": "b07317ffa957979eeb4f02bbba973e744e206d240da3caa089e0f1b860d0d1e4",
+      "bytes": 153
+    },
+    "ipv6-cidrs": {
+      "path": "feeds/bruteforce/ipv6-cidrs.txt",
+      "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/bruteforce/ipv6-cidrs.txt",
+      "entries": 0,
+      "sha256": "ef992e301fc00241d8bc4f69c71e2559fad16120fa64b5958631550f55cda60d",
+      "bytes": 153
+    }
+  }
+}

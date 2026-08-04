@@ -1,0 +1,143 @@
+{
+  "comment": "Feed categories. A category owns four published files (ipv4, ipv6, ipv4-cidrs, ipv6-cidrs) under feeds/<id>/. status: active = sources wired, planned = published empty until sources are added. Adding a category = one entry here + sources referencing it in sources.json.",
+  "categories": [
+    {
+      "id": "botnets",
+      "name": "Botnets",
+      "description": "IP addresses of infected hosts and bot agents participating in botnet activity.",
+      "status": "active"
+    },
+    {
+      "id": "malware",
+      "name": "Malware Distribution",
+      "description": "IPs hosting or serving malware payloads.",
+      "status": "active"
+    },
+    {
+      "id": "c2",
+      "name": "C2 Infrastructure",
+      "description": "Botnet and malware command & control servers.",
+      "status": "active"
+    },
+    {
+      "id": "ddos-sources",
+      "name": "DDoS Attack Sources",
+      "description": "IPs observed participating in DDoS attacks.",
+      "status": "planned"
+    },
+    {
+      "id": "http-proxies",
+      "name": "Open HTTP Proxies",
+      "description": "Open HTTP/HTTPS proxy servers frequently abused for anonymized attacks.",
+      "status": "active"
+    },
+    {
+      "id": "socks4-proxies",
+      "name": "SOCKS4 Proxies",
+      "description": "Open SOCKS4 proxy servers.",
+      "status": "active"
+    },
+    {
+      "id": "socks5-proxies",
+      "name": "SOCKS5 Proxies",
+      "description": "Open SOCKS5 proxy servers.",
+      "status": "active"
+    },
+    {
+      "id": "vpn-endpoints",
+      "name": "VPN Endpoints",
+      "description": "Public VPN exit endpoints.",
+      "status": "planned"
+    },
+    {
+      "id": "tor-exit-nodes",
+      "name": "Tor Exit Nodes",
+      "description": "Tor network exit relays.",
+      "status": "active"
+    },
+    {
+      "id": "scanners",
+      "name": "Public Scanners",
+      "description": "Internet-wide scanners, probes, and top attacking hosts.",
+      "status": "active"
+    },
+    {
+      "id": "abuse",
+      "name": "Abuse Sources",
+      "description": "Generic abusers: compromised hosts, attackers, and persistently reported IPs.",
+      "status": "active"
+    },
+    {
+      "id": "spam",
+      "name": "Spam Sources",
+      "description": "Forum, blog, and web-form spam sources.",
+      "status": "active"
+    },
+    {
+      "id": "bruteforce",
+      "name": "Brute Force Sources",
+      "description": "IPs performing brute-force authentication attacks across services.",
+      "status": "active"
+    },
+    {
+      "id": "ssh-attackers",
+      "name": "SSH Attackers",
+      "description": "IPs attacking SSH services (password guessing, scanning).",
+      "status": "active"
+    },
+    {
+      "id": "rdp-attackers",
+      "name": "RDP Attackers",
+      "description": "IPs attacking RDP services.",
+      "status": "planned"
+    },
+    {
+      "id": "credential-stuffing",
+      "name": "Credential Stuffing Sources",
+      "description": "IPs performing web login brute-force / credential stuffing.",
+      "status": "active"
+    },
+    {
+      "id": "web-exploit-scanners",
+      "name": "Web Exploit Scanners",
+      "description": "IPs scanning for or exploiting web application vulnerabilities.",
+      "status": "active"
+    },
+    {
+      "id": "exploited-infrastructure",
+      "name": "Known Exploited Infrastructure",
+      "description": "Confirmed compromised machines and exploited infrastructure.",
+      "status": "active"
+    },
+    {
+      "id": "high-risk-networks",
+      "name": "High Risk Networks",
+      "description": "Hijacked or criminal-controlled netblocks (e.g. Spamhaus DROP).",
+      "status": "active"
+    },
+    {
+      "id": "residential-proxies",
+      "name": "Residential Proxies",
+      "description": "Residential proxy exit nodes.",
+      "status": "planned"
+    },
+    {
+      "id": "hosting-providers",
+      "name": "Hosting Provider Networks",
+      "description": "Hosting/cloud provider ranges (optional category for scoring, not blocking).",
+      "status": "planned"
+    },
+    {
+      "id": "honeypot-hits",
+      "name": "Honeypot Hits",
+      "description": "IPs observed hitting OpenShield honeypots.",
+      "status": "planned"
+    },
+    {
+      "id": "community-reports",
+      "name": "Community Reports",
+      "description": "Community-submitted reputation reports (future).",
+      "status": "planned"
+    }
+  ]
+}
