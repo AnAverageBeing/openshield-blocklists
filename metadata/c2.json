@@ -4,14 +4,34 @@
   "name": "C2 Infrastructure",
   "description": "Botnet and malware command & control servers.",
   "status": "active",
-  "generated": "2026-08-05T09:21:59Z",
+  "generated": "2026-08-05T11:39:13Z",
   "version": "sha256:e7c6518890c11295db829f96ff79bc34df739d8bd3457f6e52c424245baafbad",
   "sources": {
-    "count": 4,
+    "count": 6,
     "by_status": {
-      "ok": 4
+      "ok": 5,
+      "failed": 1
     },
     "stats": [
+      {
+        "name": "bambenek_c2_masterlist",
+        "category": "c2",
+        "url": "http://osint.bambenekconsulting.com/feeds/c2-ipmasterlist.txt",
+        "priority": 10,
+        "status": "failed",
+        "detail": "fetch failed (HTTPError: HTTP Error 403: Forbidden); using stale cache (no cache available)",
+        "fetched": true,
+        "raw_bytes": 0,
+        "candidates": 0,
+        "invalid_discarded": 0,
+        "within_source_duplicates": 0,
+        "ipv4": 0,
+        "ipv6": 0,
+        "cidrs_v4": 0,
+        "cidrs_v6": 0,
+        "total": 0,
+        "duration_ms": 0
+      },
       {
         "name": "feodo_tracker_full",
         "category": "c2",
@@ -51,6 +71,25 @@
         "duration_ms": 0
       },
       {
+        "name": "sslbl_abuse_ch",
+        "category": "c2",
+        "url": "https://sslbl.abuse.ch/blacklist/sslipblacklist.txt",
+        "priority": 10,
+        "status": "ok",
+        "detail": "",
+        "fetched": true,
+        "raw_bytes": 527,
+        "candidates": 0,
+        "invalid_discarded": 0,
+        "within_source_duplicates": 0,
+        "ipv4": 0,
+        "ipv6": 0,
+        "cidrs_v4": 0,
+        "cidrs_v6": 0,
+        "total": 0,
+        "duration_ms": 0
+      },
+      {
         "name": "threatfox_iocs",
         "category": "c2",
         "url": "https://threatfox.abuse.ch/downloads/hostfile/",
@@ -58,16 +97,16 @@
         "status": "ok",
         "detail": "",
         "fetched": true,
-        "raw_bytes": 1713387,
-        "candidates": 49796,
-        "invalid_discarded": 49789,
+        "raw_bytes": 1714381,
+        "candidates": 49825,
+        "invalid_discarded": 49818,
         "within_source_duplicates": 0,
         "ipv4": 7,
         "ipv6": 0,
         "cidrs_v4": 0,
         "cidrs_v6": 0,
         "total": 7,
-        "duration_ms": 505
+        "duration_ms": 1074
       },
       {
         "name": "botvrij_c2",
@@ -99,7 +138,7 @@
   },
   "processing": {
     "duplicates_removed": 1,
-    "invalid_discarded": 49789,
+    "invalid_discarded": 49818,
     "duration_ms": 0
   },
   "files": {

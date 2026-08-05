@@ -4,12 +4,12 @@
   "name": "High Risk Networks",
   "description": "Hijacked or criminal-controlled netblocks (e.g. Spamhaus DROP).",
   "status": "active",
-  "generated": "2026-08-05T09:21:59Z",
-  "version": "sha256:6435e20a5d2f20bc6c311ad5260fb816dd568935e3d1a94260c78862e9b2f465",
+  "generated": "2026-08-05T11:39:13Z",
+  "version": "sha256:3ff5900fffbed893f2e76b34b89efdcc54b78375c6dd3ca7cfd15c6a6249c862",
   "sources": {
-    "count": 2,
+    "count": 3,
     "by_status": {
-      "ok": 2
+      "ok": 3
     },
     "stats": [
       {
@@ -20,16 +20,16 @@
         "status": "ok",
         "detail": "",
         "fetched": true,
-        "raw_bytes": 46372,
-        "candidates": 1666,
+        "raw_bytes": 46588,
+        "candidates": 1674,
         "invalid_discarded": 0,
         "within_source_duplicates": 1,
         "ipv4": 0,
         "ipv6": 0,
-        "cidrs_v4": 1665,
+        "cidrs_v4": 1673,
         "cidrs_v6": 0,
-        "total": 1665,
-        "duration_ms": 34
+        "total": 1673,
+        "duration_ms": 75
       },
       {
         "name": "spamhaus_dropv6",
@@ -48,16 +48,35 @@
         "cidrs_v4": 0,
         "cidrs_v6": 72,
         "total": 72,
-        "duration_ms": 2
+        "duration_ms": 5
+      },
+      {
+        "name": "spamhaus_edrop",
+        "category": "high-risk-networks",
+        "url": "https://www.spamhaus.org/drop/edrop.txt",
+        "priority": 10,
+        "status": "ok",
+        "detail": "",
+        "fetched": true,
+        "raw_bytes": 277,
+        "candidates": 0,
+        "invalid_discarded": 0,
+        "within_source_duplicates": 0,
+        "ipv4": 0,
+        "ipv6": 0,
+        "cidrs_v4": 0,
+        "cidrs_v6": 0,
+        "total": 0,
+        "duration_ms": 0
       }
     ]
   },
   "totals": {
     "ipv4": 0,
     "ipv6": 0,
-    "cidrs_v4": 1567,
+    "cidrs_v4": 1575,
     "cidrs_v6": 66,
-    "all": 1633
+    "all": 1641
   },
   "processing": {
     "duplicates_removed": 0,
@@ -82,9 +101,9 @@
     "ipv4-cidrs": {
       "path": "feeds/high-risk-networks/ipv4-cidrs.txt",
       "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/high-risk-networks/ipv4-cidrs.txt",
-      "entries": 1567,
-      "sha256": "9df02882066ccd82bc32bb120cde36d0112a4d7e24305acc8ab47f1f8d6da461",
-      "bytes": 24841
+      "entries": 1575,
+      "sha256": "28bc54f0bdc1e11ae129ac024795b2ad612aa67636ad36432076ac1f41502077",
+      "bytes": 24961
     },
     "ipv6-cidrs": {
       "path": "feeds/high-risk-networks/ipv6-cidrs.txt",
