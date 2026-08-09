@@ -1,0 +1,91 @@
+# openshield-blocklists :: l7-patterns :: L7 attack-pattern signatures
+# category: l7-patterns | one signature per line | spec: docs/FEED-FORMATS.md
+# entries: 5
+#
+# HAND-CURATED feed — not built from remote sources. Each line is an L7
+# drop signature for the OpenShield-XDP l7_sig_map:
+#
+#   name|proto|port|port_is_src|offset|min_payload|max_payload|pattern_hex|mask_hex
+#
+# Only highest-accuracy REFLECTION/AMPLIFICATION classes are admitted, and
+# only as RESPONSE-side signatures (port_is_src=1): a match means "a packet
+# arrived FROM a well-known amplifier service port carrying that service's
+# response marker" — which, at a protected edge (game servers, enterprise
+# apps, dedicated multi-tenant hosts, CDNs, bulk up/downloads), is only
+# ever reflected attack traffic. A wrong pattern here false-positives on
+# legitimate servers, so every entry documents its byte-level rationale;
+# candidate signatures without a confident fixed marker are EXCLUDED and
+# listed at the bottom with the reason.
+#
+# The engine compares (payload[offset+i] & mask[i]) == pattern[i]; an empty
+# mask means exact match (all-ff). offset is payload-relative (after the
+# UDP/TCP header). min_payload/max_payload bound the L4 payload length;
+# max_payload 0 = no cap.
+
+# ── DNS amplification ────────────────────────────────────────────────────
+# UDP from source port 53, DNS flags high byte (offset 2) with the QR bit
+# set (0x80 = "this is a response"), payload >= 512 bytes. Legit resolvers
+# answer the host's own queries with small A/AAAA responses; >=512-byte
+# responses are the classic ANY/DNSSEC amplification product. Caveat: very
+# large legitimate DNSSEC answers also match — min_payload=512 is the only
+# guard, so hosts doing heavy DNSSEC resolution should not enable this.
+# Confidence: byte pattern certain (RFC 1035 header layout).
+dns-amplification|udp|53|1|2|512|0|80|80
+
+# ── NTP monlist (mode 7) amplification ───────────────────────────────────
+# UDP from source port 123, first byte = response flag (0x80) + mode 7
+# (0x07), any version / more-fragments bit: pattern 0x87 mask 0x87.
+# Mode 7 is the deprecated ntpdc private protocol whose monlist request is
+# the ~550x amplifier; no modern ntpd answers mode 7 at all, so a mode-7
+# RESPONSE is never legitimate traffic to a protected host.
+# Confidence: certain (rm_vn_mode layout from ntp_request.h; the same
+# filter ISPs have deployed for CVE-2013-5211 since 2014).
+ntp-monlist|udp|123|1|0|100|0|87|87
+
+# ── SSDP / UPnP reflection ───────────────────────────────────────────────
+# UDP from source port 1900 whose payload starts with the literal
+# "HTTP/1.1" (48 54 54 50 2f 31 2e 31) — the first line of every SSDP
+# M-SEARCH response ("HTTP/1.1 200 OK"). Servers do not send M-SEARCH
+# discovery, so an SSDP response arriving at a protected edge is reflected
+# attack traffic by construction. min_payload=100 skips truncated junk.
+# Confidence: certain (UPnP Device Architecture, SSDP response format).
+ssdp-reflection|udp|1900|1|0|100|0|485454502f312e31|ffffffffffffffff
+
+# ── CLDAP reflection ─────────────────────────────────────────────────────
+# UDP from source port 389, payload byte 0 = 0x30 (BER SEQUENCE tag — every
+# LDAP/CLDAP message starts with it), payload >= 512 bytes. CLDAP is the
+# connectionless-LDAP reflection vector (CVE-2016-7434 class); its only
+# legitimate use is AD domain-controller locator, whose responses are small
+# (a few hundred bytes), so the 512-byte floor keeps those alive while
+# matching the multi-KB amplified searchResEntry floods.
+# Confidence: byte certain (RFC 4511 BER encoding); size threshold is the
+# conservative guard — AD-joined hosts doing CLDAP discovery of very large
+# DCs should not enable this.
+cldap-reflection|udp|389|1|0|512|0|30|ff
+
+# ── memcached UDP amplification ──────────────────────────────────────────
+# UDP from source port 11211, bytes 6-7 of the 8-byte memcached UDP header
+# = 0x0000 (the reserved field, always zero on the wire), near-MTU payload
+# (>= 1400 bytes). memcached UDP is the record-holder amplifier (~50000x);
+# the UDP protocol has been disabled by default since memcached 1.5.6, so
+# the only hosts still emitting large UDP datagrams from 11211 are the
+# abused ones. A host that is itself a memcached-over-UDP CLIENT pulling
+# multi-KB values would match — documented, accepted: UDP memcached is
+# deprecated and vanishingly rare.
+# Confidence: certain (memcached binary-over-UDP header: request id,
+# sequence, total datagrams, reserved=0).
+memcached-udp|udp|11211|1|6|1400|0|0000|ffff
+
+# ── EXCLUDED (no safe fixed marker — do not add without one) ─────────────
+# chargen (udp/19): RFC 864 chargen-over-UDP payloads are a random-length
+#   run of printable ASCII starting at a random rotation — no fixed byte
+#   marker exists at any offset. A port+size-only signature is impossible
+#   (the engine requires a non-empty pattern), so chargen is left to the
+#   udp_amp_ports payload-size mitigation.
+# snmp (udp/161): responses are BER (0x30 ...) like CLDAP, but enterprise
+#   monitoring legitimately polls SNMP FROM protected hosts — large
+#   GetBulk responses from sport 161 would false-positive on the host's
+#   own monitoring traffic. Excluded.
+# portmap/rpcbind (udp/111): ONC-RPC replies carry no fixed magic at a
+#   fixed offset (xid is echoed, accept-stat sits at a variable position).
+#   Excluded.

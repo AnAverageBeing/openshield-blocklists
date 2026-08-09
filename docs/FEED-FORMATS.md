@@ -72,6 +72,54 @@ Rules consumers can rely on:
 totals, per-feed summary (version, totals, file URLs). Machine consumers
 should start there.
 
+## L7 pattern feeds
+
+`feeds/l7-patterns/` is a **hand-curated, non-IP feed** — it is not built
+from remote sources and is not listed in the manifest. It carries L7
+drop signatures for OpenShield-XDP's kernel signature engine
+(`l7_sig_map`, 16 slots), one signature per line:
+
+```
+name|proto|port|port_is_src|offset|min_payload|max_payload|pattern_hex|mask_hex
+```
+
+| field | rules |
+| --- | --- |
+| `name` | 1-64 chars of `[A-Za-z0-9._-]`, unique within the file |
+| `proto` | `udp` or `tcp` |
+| `port` | 1-65535 |
+| `port_is_src` | `1` = match the SOURCE port (response-side signatures), `0` = destination |
+| `offset` | 0-255, payload-relative (after the L4 header). Note the engine reads 8 bytes from `offset`, so offsets > 248 can never match |
+| `min_payload` | 0-65535, minimum L4 payload length |
+| `max_payload` | 0 = no cap, otherwise >= `min_payload` |
+| `pattern_hex` | 1-8 bytes of hex |
+| `mask_hex` | empty (= exact match, all-`ff`) or the same byte length as `pattern_hex` |
+
+Engine semantics: a packet matches when proto, port (src or dst per
+`port_is_src`) and payload-length bounds match AND, for every pattern byte
+i, `(payload[offset+i] & mask[i]) == pattern[i]`. A signature with an empty
+pattern never matches, so patterns are mandatory. Pattern bits outside the
+mask can never match and are rejected at validation.
+
+Rules consumers can rely on:
+
+- one signature per line; blank lines ignored
+- `#` comment lines may appear anywhere (this feed documents the byte-level
+  rationale and the exclusion reasons for unsafe candidates inline)
+- entries are sorted in a stable, editorial order (by protocol class)
+- signature names are unique
+- **no timestamps** — identical content means identical bytes; the file hash
+  (`metadata/l7-patterns.json → files.patterns.sha256`) is the version
+
+Admission policy: only highest-accuracy reflection/amplification classes,
+only as response-side signatures (`port_is_src=1`) with a confident fixed
+byte marker. Candidates without one (e.g. chargen, SNMP, portmap) are
+excluded and documented at the bottom of the feed file.
+
+Validate with `openshield-feeds validate-patterns`; `openshield-feeds
+verify` also checks the file set, format and metadata hash.
+
+
 ## Versioning
 
 - `version` = `sha256` over the four file hashes → same content, same version.

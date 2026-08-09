@@ -1,9 +1,10 @@
 """Command-line interface.
 
-  openshield-feeds build            fetch + process + publish all feeds
-  openshield-feeds verify           offline integrity check of published feeds
-  openshield-feeds validate-config  check configs/*.json for errors
-  openshield-feeds list-sources     print the source registry
+  openshield-feeds build             fetch + process + publish all feeds
+  openshield-feeds verify            offline integrity check of published feeds
+  openshield-feeds validate-config   check configs/*.json for errors
+  openshield-feeds validate-patterns check the curated L7 pattern feed
+  openshield-feeds list-sources      print the source registry
 
 Everything is idempotent: repeated builds with unchanged inputs produce
 zero file changes.
@@ -29,9 +30,14 @@ from .metadata import build_manifest, category_metadata, write_json
 from .models import FEED_FORMATS, SourceResult
 from .output import write_feed
 from .parser import parse_text
+from .patterns import validate_file as validate_patterns_file
 from .pipeline import aggregate, finalize
 
 log = logging.getLogger("openshield-feeds")
+
+#: Curated non-IP feeds: hand-maintained, not built from sources, not in the
+#: manifest. Maps feed directory -> single expected file.
+CURATED_FEEDS = {"l7-patterns": "patterns.txt"}
 
 #: Refuse to publish when the grand total falls below this floor — protects
 #: against mass feed outages or a parsing regression wiping the outputs.
@@ -231,6 +237,9 @@ def cmd_verify(args) -> int:
 
     for cat in sorted(set(manifest_feeds) | set(on_disk)):
         cat_dir = feeds_dir / cat
+        if cat in CURATED_FEEDS:
+            _verify_curated(cat, cat_dir, metadata_dir, problems)
+            continue
         if cat not in manifest_feeds:
             problems.append(f"feeds/{cat}: present on disk but missing from manifest")
             continue
@@ -285,6 +294,43 @@ def cmd_verify(args) -> int:
     return 0
 
 
+def _verify_curated(cat: str, cat_dir: Path, metadata_dir: Path, problems: list[str]) -> None:
+    """Integrity-check a curated non-IP feed (file set, format, metadata hash)."""
+    fname = CURATED_FEEDS[cat]
+    if not cat_dir.is_dir():
+        problems.append(f"feeds/{cat}: missing on disk")
+        return
+    files = sorted(p.name for p in cat_dir.iterdir() if p.suffix == ".txt")
+    if files != [fname]:
+        problems.append(f"feeds/{cat}: unexpected file set {files} (expected [{fname}])")
+    path = cat_dir / fname
+    if not path.exists():
+        return
+
+    data = path.read_bytes()
+    digest = hashlib.sha256(data).hexdigest()
+    if cat == "l7-patterns":
+        entries, probs = validate_patterns_file(path)
+        problems.extend(f"feeds/{cat}/{fname}: {p}" for p in probs)
+        count = len(entries)
+    else:  # pragma: no cover - future curated feeds plug in here
+        count = 0
+
+    meta_path = metadata_dir / f"{cat}.json"
+    try:
+        meta = json.loads(meta_path.read_text())
+    except (OSError, json.JSONDecodeError) as exc:
+        problems.append(f"metadata/{cat}.json: unreadable: {exc}")
+        return
+    fmeta = meta.get("files", {}).get(fname.removesuffix(".txt"), {})
+    if fmeta.get("entries") != count:
+        problems.append(
+            f"feeds/{cat}/{fname}: metadata entries {fmeta.get('entries')} != actual {count}"
+        )
+    if fmeta.get("sha256") != digest:
+        problems.append(f"feeds/{cat}/{fname}: sha256 mismatch with metadata")
+
+
 # ─── misc commands ───────────────────────────────────────────────────────────
 
 def cmd_validate_config(args) -> int:
@@ -298,6 +344,18 @@ def cmd_validate_config(args) -> int:
         len(cfg.sources),
         len(active),
     )
+    return 0
+
+
+def cmd_validate_patterns(args) -> int:
+    path = args.file or (args.root / "feeds" / "l7-patterns" / "patterns.txt")
+    entries, problems = validate_patterns_file(path)
+    for p in problems:
+        log.error("  - %s", p)
+    if problems:
+        log.error("pattern validation FAILED with %d problem(s)", len(problems))
+        return 1
+    log.info("patterns OK: %d signature(s) in %s", len(entries), path)
     return 0
 
 
@@ -335,6 +393,12 @@ def build_parser() -> argparse.ArgumentParser:
 
     p = sub.add_parser("validate-config", help="validate configs/*.json")
     p.set_defaults(func=cmd_validate_config)
+
+    p = sub.add_parser("validate-patterns",
+                       help="validate the curated L7 pattern feed (feeds/l7-patterns/patterns.txt)")
+    p.add_argument("--file", type=Path, default=None,
+                   help="pattern file to validate (default: feeds/l7-patterns/patterns.txt)")
+    p.set_defaults(func=cmd_validate_patterns)
 
     p = sub.add_parser("list-sources", help="print the source registry")
     p.set_defaults(func=cmd_list_sources)

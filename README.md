@@ -54,9 +54,12 @@ https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feed
 | [`hosting-providers`](feeds/hosting-providers/) | Hosting/cloud ranges (scoring aid) | planned |
 | [`honeypot-hits`](feeds/honeypot-hits/) | OpenShield honeypot hits | planned |
 | [`community-reports`](feeds/community-reports/) | Community submissions | planned |
+| [`l7-patterns`](feeds/l7-patterns/) | L7 reflection-flood payload signatures (curated, not an IP list) | active |
 
-Each category directory contains `ipv4.txt`, `ipv6.txt`, `ipv4-cidrs.txt`,
+Each IP category directory contains `ipv4.txt`, `ipv6.txt`, `ipv4-cidrs.txt`,
 `ipv6-cidrs.txt`. Live counts per feed: [`metadata/manifest.json`](metadata/manifest.json).
+The curated `l7-patterns` feed is a single `patterns.txt` of pipe-separated
+L7 drop signatures (spec: [docs/FEED-FORMATS.md](docs/FEED-FORMATS.md)).
 
 ## Why these feeds are safe to consume
 

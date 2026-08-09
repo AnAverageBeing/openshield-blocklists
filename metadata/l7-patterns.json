@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "feed": "l7-patterns",
+  "name": "L7 Attack-Pattern Signatures",
+  "description": "Hand-curated L7 drop signatures for highest-accuracy reflection/amplification flood classes (DNS, NTP monlist, SSDP, CLDAP, memcached UDP). Not an IP feed: one pipe-separated signature per line, spec in docs/FEED-FORMATS.md. Loaded by OpenShield-XDP into the kernel l7_sig_map when auto_fetch.patterns_enabled is on.",
+  "status": "active",
+  "curated": true,
+  "generated": "2026-08-09T18:33:32Z",
+  "version": "sha256:93d002f6fb98780aa1caa9bc3d50d868ab459a1f5be6146b750d5fde960e7c34",
+  "sources": {
+    "count": 0,
+    "by_status": {},
+    "stats": []
+  },
+  "totals": {
+    "signatures": 5,
+    "all": 5
+  },
+  "processing": {
+    "duplicates_removed": 0,
+    "invalid_discarded": 0,
+    "duration_ms": 0
+  },
+  "files": {
+    "patterns": {
+      "path": "feeds/l7-patterns/patterns.txt",
+      "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/l7-patterns/patterns.txt",
+      "entries": 5,
+      "sha256": "93d002f6fb98780aa1caa9bc3d50d868ab459a1f5be6146b750d5fde960e7c34",
+      "bytes": 5896
+    }
+  }
+}
