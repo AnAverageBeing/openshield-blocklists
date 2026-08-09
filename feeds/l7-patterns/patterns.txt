@@ -1,6 +1,6 @@
 # openshield-blocklists :: l7-patterns :: L7 attack-pattern signatures
 # category: l7-patterns | one signature per line | spec: docs/FEED-FORMATS.md
-# entries: 5
+# entries: 10
 #
 # HAND-CURATED feed — not built from remote sources. Each line is an L7
 # drop signature for the OpenShield-XDP l7_sig_map:
@@ -75,6 +75,77 @@ cldap-reflection|udp|389|1|0|512|0|30|ff
 # Confidence: certain (memcached binary-over-UDP header: request id,
 # sequence, total datagrams, reserved=0).
 memcached-udp|udp|11211|1|6|1400|0|0000|ffff
+
+# ── WS-Discovery (WSD) reflection ────────────────────────────────────────
+# UDP from source port 3702 whose payload starts with the literal "<?xml"
+# (3c 3f 78 6d 6c) — the XML declaration opening every WS-Discovery
+# response (Hello / ProbeMatches / ResolveMatches SOAP envelopes,
+# SOAP-over-UDP per WS-Discovery 1.1). WSD is the 2019-era record
+# amplification vector (~500x+ observed) abused via exposed ONVIF/printer/
+# embedded devices; protected servers never run WS-Discovery discovery
+# clients, so a WSD response arriving at the edge is reflected attack
+# traffic by construction. min_payload=500 matches the bloated ProbeMatches
+# bodies (typically 700B-2KB) and skips any truncated junk. Responders that
+# omit the XML declaration are missed by design (a miss is safe).
+# Confidence: byte certain for the response shape (SOAP/XML over UDP);
+# the marker anchors at payload offset 0.
+ws-discovery|udp|3702|1|0|500|0|3c3f786d6c|ffffffffff
+
+# ── STUN binding-success reflection ──────────────────────────────────────
+# UDP from source port 3478, RFC 5389 message header: message type 0x0101
+# (Binding Success Response) at offset 0 AND the magic cookie 0x2112A442 at
+# offset 4; the 2 length bytes in between are masked out (pattern/mask
+# 0101 0000 2112a442 / ffff 0000 ffffffff). The cookie separates STUN from
+# any other protocol that happens to open with 01 01 on the same port.
+# min_payload=100 is above a bare binding answer (~32-68B) so the host's
+# own STUN client (WebRTC/SIP/ICE — uncommon on server edges, but possible)
+# keeps small legit responses alive; amplification floods pad responses
+# well past that. Legacy RFC 3489-only responders (no cookie) are missed
+# by design.
+# Confidence: byte certain (RFC 5389 §6 fixed 20-byte header layout).
+stun|udp|3478|1|0|100|0|010100002112a442|ffff0000ffffffff
+
+# ── CoAP 2.xx response reflection ────────────────────────────────────────
+# UDP from source port 5683, RFC 7252 header byte 0 = version 1 (01 in the
+# top two bits), byte 1 = response code class 2 (010 in the top three bits,
+# i.e. any 2.xx success code: 2.01 Created … 2.05 Content): pattern 40 40
+# mask c0 e0. Message type (CON/NON/ACK/RST) is deliberately NOT restricted:
+# reflected CoAP floods arrive as piggybacked ACK or separate NON/CON 2.05
+# Content responses to spoofed requests (/.well-known/core discovery is the
+# classic ~30x+ vector), and observe notifications share the same bytes.
+# Residual FP: a protected host that is itself a CoAP client (IoT gateway
+# style) receives legit 2.xx responses — rare on server edges; min_payload
+# 100 keeps the smallest answers alive.
+# Confidence: byte certain (RFC 7252 §3 header layout); class-wide match
+# accepted per the response-side admission policy (same reasoning as SSDP).
+coap|udp|5683|1|0|100|0|4040|c0e0
+
+# ── mDNS response reflection ─────────────────────────────────────────────
+# UDP from source port 5353, DNS header flags high byte (offset 2) with the
+# QR bit set (0x80), payload >= 200 bytes — same header logic as the DNS
+# entry (RFC 1035/6762 share the wire header) on the mDNS port. mDNS
+# reflectors answer spoofed ANY queries with large PTR/SRV/TXT responses.
+# Residual FP risk (accepted, documented): mDNS is link-local by design
+# (224.0.0.251, TTL 255) and unusual on server VLANs — but a host that
+# legitimately runs an mDNS responder querier (avahi, printer/IoT
+# discovery on the LAN) sees real responses from sport 5353; the 200-byte
+# floor is the only guard for those. Do not enable on such hosts.
+# Confidence: byte certain (RFC 1035 header layout, RFC 6762 reuse).
+mdns|udp|5353|1|2|200|0|80|80
+
+# ── NTP mode 6 (ntpq control) reflection ─────────────────────────────────
+# UDP from source port 123, first byte = response flag (0x80) + mode 6
+# (0x06), any version / error bit: pattern 0x86 mask 0x87 — the same
+# RM_VN_MODE byte layout family as the mode-7 entry above, for the ntpq
+# control protocol. Mode 6 query responses (mrulist in ntpd 4.2.8p+, large
+# statistics dumps) are the post-monlist NTP amplifier class. Residual FP:
+# a host that actively polls remote NTP servers with ntpq control queries
+# receives legit mode-6 responses — rare on protected servers; min_payload
+# 200 matches the multi-fragment mrulist/stat floods (fragments up to
+# ~480B) and skips small single-variable answers.
+# Confidence: byte certain (RM_VN_MODE layout, ntp_control.h; same header
+# family as the mode-7 signature ISPs have deployed since 2014).
+ntp-mode6|udp|123|1|0|200|0|86|87
 
 # ── EXCLUDED (no safe fixed marker — do not add without one) ─────────────
 # chargen (udp/19): RFC 864 chargen-over-UDP payloads are a random-length

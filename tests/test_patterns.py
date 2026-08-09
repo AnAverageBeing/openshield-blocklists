@@ -119,7 +119,7 @@ class TestValidateText(unittest.TestCase):
         feed = root / "feeds" / "l7-patterns" / "patterns.txt"
         patterns, problems = validate_text(feed.read_text())
         self.assertEqual(problems, [])
-        self.assertEqual(len(patterns), 5)
+        self.assertEqual(len(patterns), 10)
         # Every shipped signature must be response-side (port_is_src=1):
         # a match means "traffic FROM an amplifier service port".
         for sig in patterns:
