@@ -4,12 +4,13 @@
   "name": "Abuse Sources",
   "description": "Generic abusers: compromised hosts, attackers, and persistently reported IPs.",
   "status": "active",
-  "generated": "2026-08-10T14:02:12Z",
-  "version": "sha256:9850fbddd9980a22e452a5a8a62a9d45f82cbdd8f5caa9561db378e93e01ff76",
+  "generated": "2026-08-10T16:27:06Z",
+  "version": "sha256:a2bfe99d2067dfcf05de241f46410338cfb26fa2baf0f76cd275e4d86ee50698",
   "sources": {
     "count": 13,
     "by_status": {
-      "ok": 11,
+      "ok": 10,
+      "stale-cache": 1,
       "skipped": 1,
       "failed": 1
     },
@@ -50,7 +51,7 @@
         "cidrs_v4": 0,
         "cidrs_v6": 0,
         "total": 114621,
-        "duration_ms": 282
+        "duration_ms": 379
       },
       {
         "name": "abuseipdb_firehol_30d",
@@ -69,7 +70,7 @@
         "cidrs_v4": 0,
         "cidrs_v6": 0,
         "total": 107203,
-        "duration_ms": 467
+        "duration_ms": 500
       },
       {
         "name": "binary_defense_banlist",
@@ -88,15 +89,15 @@
         "cidrs_v4": 0,
         "cidrs_v6": 0,
         "total": 2818,
-        "duration_ms": 7
+        "duration_ms": 9
       },
       {
         "name": "blocklist_de_all",
         "category": "abuse",
         "url": "https://lists.blocklist.de/lists/all.txt",
         "priority": 20,
-        "status": "ok",
-        "detail": "",
+        "status": "stale-cache",
+        "detail": "empty response; using stale cache",
         "fetched": true,
         "raw_bytes": 320829,
         "candidates": 21923,
@@ -107,7 +108,7 @@
         "cidrs_v4": 0,
         "cidrs_v6": 0,
         "total": 21922,
-        "duration_ms": 395
+        "duration_ms": 513
       },
       {
         "name": "talos_ip_blacklist",
@@ -145,7 +146,7 @@
         "cidrs_v4": 351,
         "cidrs_v6": 0,
         "total": 15225,
-        "duration_ms": 36
+        "duration_ms": 48
       },
       {
         "name": "greensnow",
@@ -155,16 +156,16 @@
         "status": "ok",
         "detail": "",
         "fetched": true,
-        "raw_bytes": 46683,
-        "candidates": 3265,
+        "raw_bytes": 46548,
+        "candidates": 3257,
         "invalid_discarded": 1,
         "within_source_duplicates": 0,
-        "ipv4": 3264,
+        "ipv4": 3256,
         "ipv6": 0,
         "cidrs_v4": 0,
         "cidrs_v6": 0,
-        "total": 3264,
-        "duration_ms": 55
+        "total": 3256,
+        "duration_ms": 78
       },
       {
         "name": "blocklist_net_ua",
@@ -183,7 +184,7 @@
         "cidrs_v4": 0,
         "cidrs_v6": 0,
         "total": 131526,
-        "duration_ms": 361
+        "duration_ms": 463
       },
       {
         "name": "darklist_de",
@@ -221,7 +222,7 @@
         "cidrs_v4": 5051,
         "cidrs_v6": 0,
         "total": 145042,
-        "duration_ms": 598
+        "duration_ms": 694
       },
       {
         "name": "voipbl",
@@ -240,7 +241,7 @@
         "cidrs_v4": 97341,
         "cidrs_v6": 0,
         "total": 97341,
-        "duration_ms": 986
+        "duration_ms": 1025
       },
       {
         "name": "firehol_level3",
@@ -259,29 +260,29 @@
         "cidrs_v4": 787,
         "cidrs_v6": 0,
         "total": 13550,
-        "duration_ms": 33
+        "duration_ms": 44
       }
     ]
   },
   "totals": {
-    "ipv4": 393543,
+    "ipv4": 393562,
     "ipv6": 439,
     "cidrs_v4": 101586,
     "cidrs_v6": 0,
-    "all": 495568
+    "all": 495587
   },
   "processing": {
-    "duplicates_removed": 127709,
+    "duplicates_removed": 127682,
     "invalid_discarded": 17,
-    "duration_ms": 41
+    "duration_ms": 46
   },
   "files": {
     "ipv4": {
       "path": "feeds/abuse/ipv4.txt",
       "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/abuse/ipv4.txt",
-      "entries": 393543,
-      "sha256": "ced5ca5a48eedc126da1facc992032fb5bdacfa0ffe963f5afb0c46b1748e064",
-      "bytes": 5607922
+      "entries": 393562,
+      "sha256": "f3b2940ed8afc6f0f71760b88eea7dd361ffb9db47320eb165b35470aa293170",
+      "bytes": 5608186
     },
     "ipv6": {
       "path": "feeds/abuse/ipv6.txt",
