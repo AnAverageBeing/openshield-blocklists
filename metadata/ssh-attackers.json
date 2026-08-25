@@ -4,8 +4,8 @@
   "name": "SSH Attackers",
   "description": "IPs attacking SSH services (password guessing, scanning).",
   "status": "active",
-  "generated": "2026-08-25T13:31:36Z",
-  "version": "sha256:fa2eaae5aca0336d2ddbc72347e129a3fdaba3b99f8303e988368c07998846da",
+  "generated": "2026-08-25T16:16:51Z",
+  "version": "sha256:fd05ca86d3ed39c5eb328f1d36cb67167891e9bd103c2283eac1e72c4110437e",
   "sources": {
     "count": 2,
     "by_status": {
@@ -20,16 +20,16 @@
         "status": "ok",
         "detail": "",
         "fetched": true,
-        "raw_bytes": 77252,
-        "candidates": 5380,
+        "raw_bytes": 77060,
+        "candidates": 5362,
         "invalid_discarded": 0,
         "within_source_duplicates": 0,
-        "ipv4": 5355,
-        "ipv6": 25,
+        "ipv4": 5333,
+        "ipv6": 29,
         "cidrs_v4": 0,
         "cidrs_v6": 0,
-        "total": 5380,
-        "duration_ms": 134
+        "total": 5362,
+        "duration_ms": 122
       },
       {
         "name": "dataplane_sshpwauth",
@@ -39,28 +39,28 @@
         "status": "ok",
         "detail": "",
         "fetched": true,
-        "raw_bytes": 923872,
-        "candidates": 8768,
+        "raw_bytes": 923977,
+        "candidates": 8769,
         "invalid_discarded": 0,
         "within_source_duplicates": 0,
-        "ipv4": 8768,
+        "ipv4": 8769,
         "ipv6": 0,
         "cidrs_v4": 0,
         "cidrs_v6": 0,
-        "total": 8768,
-        "duration_ms": 655
+        "total": 8769,
+        "duration_ms": 611
       }
     ]
   },
   "totals": {
-    "ipv4": 11383,
-    "ipv6": 25,
+    "ipv4": 11389,
+    "ipv6": 29,
     "cidrs_v4": 0,
     "cidrs_v6": 0,
-    "all": 11408
+    "all": 11418
   },
   "processing": {
-    "duplicates_removed": 2740,
+    "duplicates_removed": 2713,
     "invalid_discarded": 0,
     "duration_ms": 2
   },
@@ -68,16 +68,16 @@
     "ipv4": {
       "path": "feeds/ssh-attackers/ipv4.txt",
       "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/ssh-attackers/ipv4.txt",
-      "entries": 11383,
-      "sha256": "05d78c6dc21fb793a22f8f6147c4794683c6deb7ce1c45541f4e7a4a6900f56b",
-      "bytes": 162726
+      "entries": 11389,
+      "sha256": "3ea46c5a22f760c82cbb9c113d5d8103aa71f8e8575c77e8b358ce5a7a7eeb33",
+      "bytes": 162840
     },
     "ipv6": {
       "path": "feeds/ssh-attackers/ipv6.txt",
       "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/ssh-attackers/ipv6.txt",
-      "entries": 25,
-      "sha256": "effd377857a5c4944ce42c9e8ad9d476807ff46dde742d46237c27838d8cbd8f",
-      "bytes": 798
+      "entries": 29,
+      "sha256": "cb9a705f7f552daad10a5bcd45f9c44634375defce2e72f951c6bc4a8dcde50a",
+      "bytes": 894
     },
     "ipv4-cidrs": {
       "path": "feeds/ssh-attackers/ipv4-cidrs.txt",
