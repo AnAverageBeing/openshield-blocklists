@@ -4,8 +4,8 @@
   "name": "Abuse Sources",
   "description": "Generic abusers: compromised hosts, attackers, and persistently reported IPs.",
   "status": "active",
-  "generated": "2026-09-03T21:18:12Z",
-  "version": "sha256:16a7b1ddc7817e33859caa4691b5b4ef0062f6144c313edda5b6ccb7e30a60ca",
+  "generated": "2026-09-03T23:30:37Z",
+  "version": "sha256:7198e0e988ca236c6e9dda291eec148afedfc7ff51d9d43616e7000c5680422c",
   "sources": {
     "count": 13,
     "by_status": {
@@ -50,7 +50,7 @@
         "cidrs_v4": 0,
         "cidrs_v6": 0,
         "total": 152652,
-        "duration_ms": 486
+        "duration_ms": 381
       },
       {
         "name": "abuseipdb_firehol_30d",
@@ -69,7 +69,7 @@
         "cidrs_v4": 0,
         "cidrs_v6": 0,
         "total": 147856,
-        "duration_ms": 719
+        "duration_ms": 567
       },
       {
         "name": "binary_defense_banlist",
@@ -88,7 +88,7 @@
         "cidrs_v4": 0,
         "cidrs_v6": 0,
         "total": 715,
-        "duration_ms": 2
+        "duration_ms": 1
       },
       {
         "name": "blocklist_de_all",
@@ -98,16 +98,16 @@
         "status": "ok",
         "detail": "",
         "fetched": true,
-        "raw_bytes": 429253,
-        "candidates": 29441,
+        "raw_bytes": 428491,
+        "candidates": 29404,
         "invalid_discarded": 0,
         "within_source_duplicates": 0,
-        "ipv4": 29001,
-        "ipv6": 440,
+        "ipv4": 28974,
+        "ipv6": 430,
         "cidrs_v4": 0,
         "cidrs_v6": 0,
-        "total": 29441,
-        "duration_ms": 640
+        "total": 29404,
+        "duration_ms": 505
       },
       {
         "name": "talos_ip_blacklist",
@@ -145,7 +145,7 @@
         "cidrs_v4": 449,
         "cidrs_v6": 0,
         "total": 23395,
-        "duration_ms": 69
+        "duration_ms": 54
       },
       {
         "name": "greensnow",
@@ -155,16 +155,16 @@
         "status": "ok",
         "detail": "",
         "fetched": true,
-        "raw_bytes": 64118,
-        "candidates": 4483,
+        "raw_bytes": 74951,
+        "candidates": 5235,
         "invalid_discarded": 1,
         "within_source_duplicates": 0,
-        "ipv4": 4482,
+        "ipv4": 5234,
         "ipv6": 0,
         "cidrs_v4": 0,
         "cidrs_v6": 0,
-        "total": 4482,
-        "duration_ms": 96
+        "total": 5234,
+        "duration_ms": 88
       },
       {
         "name": "blocklist_net_ua",
@@ -183,7 +183,7 @@
         "cidrs_v4": 0,
         "cidrs_v6": 0,
         "total": 165254,
-        "duration_ms": 615
+        "duration_ms": 480
       },
       {
         "name": "darklist_de",
@@ -221,7 +221,7 @@
         "cidrs_v4": 5182,
         "cidrs_v6": 0,
         "total": 152511,
-        "duration_ms": 819
+        "duration_ms": 633
       },
       {
         "name": "voipbl",
@@ -240,7 +240,7 @@
         "cidrs_v4": 98727,
         "cidrs_v6": 0,
         "total": 98727,
-        "duration_ms": 4476
+        "duration_ms": 1083
       },
       {
         "name": "firehol_level3",
@@ -259,36 +259,36 @@
         "cidrs_v4": 766,
         "cidrs_v6": 0,
         "total": 13373,
-        "duration_ms": 41
+        "duration_ms": 31
       }
     ]
   },
   "totals": {
-    "ipv4": 484456,
-    "ipv6": 440,
+    "ipv4": 484642,
+    "ipv6": 430,
     "cidrs_v4": 103158,
     "cidrs_v6": 0,
-    "all": 588054
+    "all": 588230
   },
   "processing": {
-    "duplicates_removed": 171183,
+    "duplicates_removed": 171725,
     "invalid_discarded": 13,
-    "duration_ms": 61
+    "duration_ms": 48
   },
   "files": {
     "ipv4": {
       "path": "feeds/abuse/ipv4.txt",
       "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/abuse/ipv4.txt",
-      "entries": 484456,
-      "sha256": "9b1437b7ddad942e4b00154733933b856235fefc66263b85c257d1c8ac71994f",
-      "bytes": 6902345
+      "entries": 484642,
+      "sha256": "259d90055d7955c396dcb8047d3251489aaffce218e81a5e66daf3ceb895c9c4",
+      "bytes": 6904990
     },
     "ipv6": {
       "path": "feeds/abuse/ipv6.txt",
       "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/abuse/ipv6.txt",
-      "entries": 440,
-      "sha256": "bcbddb0a1c601a566539484dfed7d4813b9d2a422021a9c060b23ab86c7c6c43",
-      "bytes": 16526
+      "entries": 430,
+      "sha256": "474a078794db79a722ea7e050fb866aff8f7197eb2d6d287d82ff3dd03df86ba",
+      "bytes": 16141
     },
     "ipv4-cidrs": {
       "path": "feeds/abuse/ipv4-cidrs.txt",
