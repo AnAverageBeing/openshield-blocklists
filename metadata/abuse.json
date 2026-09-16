@@ -4,8 +4,8 @@
   "name": "Abuse Sources",
   "description": "Generic abusers: compromised hosts, attackers, and persistently reported IPs.",
   "status": "active",
-  "generated": "2026-09-16T12:00:01Z",
-  "version": "sha256:6f7eeb2ee0129fc7374f1ff76739ab01883666a7851bf7d8e06b4d58f7c27a0f",
+  "generated": "2026-09-16T17:15:45Z",
+  "version": "sha256:6ec839547fc629da9ada200c2ce0e6d90338ae5e78f89f8f5a0709075fba8868",
   "sources": {
     "count": 13,
     "by_status": {
@@ -50,7 +50,7 @@
         "cidrs_v4": 0,
         "cidrs_v6": 0,
         "total": 122565,
-        "duration_ms": 412
+        "duration_ms": 413
       },
       {
         "name": "abuseipdb_firehol_30d",
@@ -69,7 +69,7 @@
         "cidrs_v4": 0,
         "cidrs_v6": 0,
         "total": 151776,
-        "duration_ms": 3711
+        "duration_ms": 780
       },
       {
         "name": "binary_defense_banlist",
@@ -88,7 +88,7 @@
         "cidrs_v4": 0,
         "cidrs_v6": 0,
         "total": 4148,
-        "duration_ms": 12
+        "duration_ms": 13
       },
       {
         "name": "blocklist_de_all",
@@ -98,16 +98,16 @@
         "status": "ok",
         "detail": "",
         "fetched": true,
-        "raw_bytes": 375681,
-        "candidates": 25787,
+        "raw_bytes": 381701,
+        "candidates": 26222,
         "invalid_discarded": 0,
         "within_source_duplicates": 0,
-        "ipv4": 25311,
-        "ipv6": 476,
+        "ipv4": 25762,
+        "ipv6": 460,
         "cidrs_v4": 0,
         "cidrs_v6": 0,
-        "total": 25787,
-        "duration_ms": 619
+        "total": 26222,
+        "duration_ms": 625
       },
       {
         "name": "talos_ip_blacklist",
@@ -145,7 +145,7 @@
         "cidrs_v4": 605,
         "cidrs_v6": 0,
         "total": 19156,
-        "duration_ms": 469
+        "duration_ms": 61
       },
       {
         "name": "greensnow",
@@ -155,16 +155,16 @@
         "status": "ok",
         "detail": "",
         "fetched": true,
-        "raw_bytes": 62932,
-        "candidates": 4397,
+        "raw_bytes": 65283,
+        "candidates": 4561,
         "invalid_discarded": 1,
         "within_source_duplicates": 0,
-        "ipv4": 4396,
+        "ipv4": 4560,
         "ipv6": 0,
         "cidrs_v4": 0,
         "cidrs_v6": 0,
-        "total": 4396,
-        "duration_ms": 104
+        "total": 4560,
+        "duration_ms": 109
       },
       {
         "name": "blocklist_net_ua",
@@ -183,7 +183,7 @@
         "cidrs_v4": 0,
         "cidrs_v6": 0,
         "total": 194329,
-        "duration_ms": 4758
+        "duration_ms": 765
       },
       {
         "name": "darklist_de",
@@ -221,7 +221,7 @@
         "cidrs_v4": 4923,
         "cidrs_v6": 0,
         "total": 143829,
-        "duration_ms": 3755
+        "duration_ms": 812
       },
       {
         "name": "voipbl",
@@ -231,16 +231,16 @@
         "status": "ok",
         "detail": "",
         "fetched": true,
-        "raw_bytes": 1706970,
-        "candidates": 99351,
+        "raw_bytes": 1707466,
+        "candidates": 99380,
         "invalid_discarded": 6,
         "within_source_duplicates": 0,
         "ipv4": 0,
         "ipv6": 0,
-        "cidrs_v4": 99345,
+        "cidrs_v4": 99374,
         "cidrs_v6": 0,
-        "total": 99345,
-        "duration_ms": 872
+        "total": 99374,
+        "duration_ms": 5116
       },
       {
         "name": "firehol_level3",
@@ -259,43 +259,43 @@
         "cidrs_v4": 809,
         "cidrs_v6": 0,
         "total": 12986,
-        "duration_ms": 328
+        "duration_ms": 42
       }
     ]
   },
   "totals": {
-    "ipv4": 476334,
-    "ipv6": 476,
-    "cidrs_v4": 103550,
+    "ipv4": 477409,
+    "ipv6": 460,
+    "cidrs_v4": 103580,
     "cidrs_v6": 0,
-    "all": 580360
+    "all": 581449
   },
   "processing": {
-    "duplicates_removed": 162884,
+    "duplicates_removed": 162400,
     "invalid_discarded": 14,
-    "duration_ms": 61
+    "duration_ms": 63
   },
   "files": {
     "ipv4": {
       "path": "feeds/abuse/ipv4.txt",
       "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/abuse/ipv4.txt",
-      "entries": 476334,
-      "sha256": "d39bd991229585ba901ea17c351874d18cce618d9831b05592c3e25fbb91f566",
-      "bytes": 6778937
+      "entries": 477409,
+      "sha256": "05bb9c01a31db5bb628f908f76996a97f8c6c044629a131360fff8de1232d1d8",
+      "bytes": 6794520
     },
     "ipv6": {
       "path": "feeds/abuse/ipv6.txt",
       "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/abuse/ipv6.txt",
-      "entries": 476,
-      "sha256": "17f91572ea6ea280a36c0b611eb7eafbc6d599504eb46e3b47edb01131508e07",
-      "bytes": 17112
+      "entries": 460,
+      "sha256": "f92ef455b779be712e2d78c7c3ad642d5e31c88fb9bd04d7e327d38884cd7500",
+      "bytes": 16554
     },
     "ipv4-cidrs": {
       "path": "feeds/abuse/ipv4-cidrs.txt",
       "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/abuse/ipv4-cidrs.txt",
-      "entries": 103550,
-      "sha256": "5ee64dc957c79e7c90ce84548e732c2f3effd136c138ccf63c93e0ad4ee6e357",
-      "bytes": 1779217
+      "entries": 103580,
+      "sha256": "4aa1fbf22c5610e5461c6eb8e72c1b931f62ad44e3fa7858edb3572b54a61051",
+      "bytes": 1779731
     },
     "ipv6-cidrs": {
       "path": "feeds/abuse/ipv6-cidrs.txt",
