@@ -4,13 +4,12 @@
   "name": "Abuse Sources",
   "description": "Generic abusers: compromised hosts, attackers, and persistently reported IPs.",
   "status": "active",
-  "generated": "2026-09-17T21:42:33Z",
-  "version": "sha256:2cbda9f02e4516e4c255710059b8d2b59a9fb105d8832ad5f51935a3aaaf1e22",
+  "generated": "2026-09-18T05:07:56Z",
+  "version": "sha256:32f82b30f17b30a1378b0ae920dc2e0d4198ecedbdaba6dd32c83780cf553280",
   "sources": {
     "count": 13,
     "by_status": {
-      "ok": 10,
-      "stale-cache": 1,
+      "ok": 11,
       "skipped": 1,
       "failed": 1
     },
@@ -42,16 +41,16 @@
         "status": "ok",
         "detail": "",
         "fetched": true,
-        "raw_bytes": 2010021,
-        "candidates": 124048,
+        "raw_bytes": 1993704,
+        "candidates": 123071,
         "invalid_discarded": 0,
         "within_source_duplicates": 0,
-        "ipv4": 124048,
+        "ipv4": 123071,
         "ipv6": 0,
         "cidrs_v4": 0,
         "cidrs_v6": 0,
-        "total": 124048,
-        "duration_ms": 415
+        "total": 123071,
+        "duration_ms": 3863
       },
       {
         "name": "abuseipdb_firehol_30d",
@@ -70,7 +69,7 @@
         "cidrs_v4": 0,
         "cidrs_v6": 0,
         "total": 153173,
-        "duration_ms": 699
+        "duration_ms": 690
       },
       {
         "name": "binary_defense_banlist",
@@ -80,16 +79,16 @@
         "status": "ok",
         "detail": "",
         "fetched": true,
-        "raw_bytes": 62645,
-        "candidates": 4357,
+        "raw_bytes": 66105,
+        "candidates": 4597,
         "invalid_discarded": 0,
         "within_source_duplicates": 2,
-        "ipv4": 4355,
+        "ipv4": 4595,
         "ipv6": 0,
         "cidrs_v4": 0,
         "cidrs_v6": 0,
-        "total": 4355,
-        "duration_ms": 13
+        "total": 4595,
+        "duration_ms": 106
       },
       {
         "name": "blocklist_de_all",
@@ -99,16 +98,16 @@
         "status": "ok",
         "detail": "",
         "fetched": true,
-        "raw_bytes": 399828,
-        "candidates": 27454,
+        "raw_bytes": 400920,
+        "candidates": 27510,
         "invalid_discarded": 0,
         "within_source_duplicates": 0,
-        "ipv4": 26984,
-        "ipv6": 470,
+        "ipv4": 27023,
+        "ipv6": 487,
         "cidrs_v4": 0,
         "cidrs_v6": 0,
-        "total": 27454,
-        "duration_ms": 652
+        "total": 27510,
+        "duration_ms": 650
       },
       {
         "name": "talos_ip_blacklist",
@@ -156,16 +155,16 @@
         "status": "ok",
         "detail": "",
         "fetched": true,
-        "raw_bytes": 61373,
-        "candidates": 4276,
+        "raw_bytes": 72510,
+        "candidates": 5060,
         "invalid_discarded": 1,
         "within_source_duplicates": 0,
-        "ipv4": 4275,
+        "ipv4": 5059,
         "ipv6": 0,
         "cidrs_v4": 0,
         "cidrs_v6": 0,
-        "total": 4275,
-        "duration_ms": 102
+        "total": 5059,
+        "duration_ms": 136
       },
       {
         "name": "blocklist_net_ua",
@@ -184,15 +183,15 @@
         "cidrs_v4": 0,
         "cidrs_v6": 0,
         "total": 199106,
-        "duration_ms": 723
+        "duration_ms": 695
       },
       {
         "name": "darklist_de",
         "category": "abuse",
         "url": "https://www.darklist.de/raw.php",
         "priority": 40,
-        "status": "stale-cache",
-        "detail": "fetch failed (URLError: <urlopen error [Errno 111] Connection refused>); using stale cache",
+        "status": "ok",
+        "detail": "",
         "fetched": true,
         "raw_bytes": 68,
         "candidates": 0,
@@ -222,7 +221,7 @@
         "cidrs_v4": 4869,
         "cidrs_v6": 0,
         "total": 143241,
-        "duration_ms": 728
+        "duration_ms": 709
       },
       {
         "name": "voipbl",
@@ -232,16 +231,16 @@
         "status": "ok",
         "detail": "",
         "fetched": true,
-        "raw_bytes": 1709311,
-        "candidates": 99487,
+        "raw_bytes": 1709595,
+        "candidates": 99504,
         "invalid_discarded": 6,
         "within_source_duplicates": 0,
         "ipv4": 0,
         "ipv6": 0,
-        "cidrs_v4": 99481,
+        "cidrs_v4": 99498,
         "cidrs_v6": 0,
-        "total": 99481,
-        "duration_ms": 1182
+        "total": 99498,
+        "duration_ms": 4751
       },
       {
         "name": "firehol_level3",
@@ -265,14 +264,14 @@
     ]
   },
   "totals": {
-    "ipv4": 481344,
-    "ipv6": 470,
-    "cidrs_v4": 103856,
+    "ipv4": 483409,
+    "ipv6": 487,
+    "cidrs_v4": 103867,
     "cidrs_v6": 0,
-    "all": 585670
+    "all": 587763
   },
   "processing": {
-    "duplicates_removed": 168187,
+    "duplicates_removed": 166087,
     "invalid_discarded": 14,
     "duration_ms": 60
   },
@@ -280,23 +279,23 @@
     "ipv4": {
       "path": "feeds/abuse/ipv4.txt",
       "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/abuse/ipv4.txt",
-      "entries": 481344,
-      "sha256": "512bf7013fa96cc20605fcc8da44e546ddc6024194dc223caf5ca4a652b50e67",
-      "bytes": 6848561
+      "entries": 483409,
+      "sha256": "fcd1aa1414a4a0ebc573b8978f97ca408205e5604c76365e46c622e2ea090322",
+      "bytes": 6877848
     },
     "ipv6": {
       "path": "feeds/abuse/ipv6.txt",
       "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/abuse/ipv6.txt",
-      "entries": 470,
-      "sha256": "b99415ddd63a7bcbe8eb972853e062da1a9c33fc3a37fa5f6ea661ad98d664ec",
-      "bytes": 17007
+      "entries": 487,
+      "sha256": "da0bcfe0667de5020c873850d256d06f1d6d20e6039c0cf8021e1c3774841264",
+      "bytes": 17636
     },
     "ipv4-cidrs": {
       "path": "feeds/abuse/ipv4-cidrs.txt",
       "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/abuse/ipv4-cidrs.txt",
-      "entries": 103856,
-      "sha256": "f7ab34054b775c33975e6d0e97b98f3ae9f148db1e8e766144031e4f2d92ee9f",
-      "bytes": 1784457
+      "entries": 103867,
+      "sha256": "447129cc1ac1c8c655ed7db352f8c813a785e957449dfb56977fecd939a91283",
+      "bytes": 1784645
     },
     "ipv6-cidrs": {
       "path": "feeds/abuse/ipv6-cidrs.txt",
