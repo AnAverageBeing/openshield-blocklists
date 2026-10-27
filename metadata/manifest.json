@@ -1,27 +1,27 @@
 {
   "schema": 1,
   "generator": "openshield-feeds/1.0.0",
-  "generated": "2026-10-26T20:43:41Z",
+  "generated": "2026-10-27T00:46:33Z",
   "repository": "https://github.com/AnAverageBeing/openshield-blocklists",
   "feed_count": 23,
   "totals": {
-    "ipv4": 687253,
-    "ipv6": 1153,
+    "ipv4": 688710,
+    "ipv6": 1159,
     "cidrs_v4": 116898,
     "cidrs_v6": 66,
-    "all": 805370
+    "all": 806833
   },
   "processing": {
     "sources": 80,
     "by_status": {
-      "ok": 75,
-      "stale-cache": 2,
+      "ok": 74,
+      "stale-cache": 3,
       "skipped": 1,
       "failed": 2
     },
-    "duplicates_removed": 204021,
+    "duplicates_removed": 204752,
     "invalid_discarded": 31601,
-    "duration_ms": 31157
+    "duration_ms": 55283
   },
   "feeds": [
     {
@@ -29,13 +29,13 @@
       "name": "Abuse Sources",
       "description": "Generic abusers: compromised hosts, attackers, and persistently reported IPs.",
       "status": "active",
-      "version": "sha256:66eb2489f8185827aeabac666d3f11ba1158d82bb60b982c40f26d32372fcf75",
+      "version": "sha256:d2a44940b9a2274d997b64a37c03deb9a13c300ade3823147954e6721bb7d190",
       "totals": {
-        "ipv4": 509886,
-        "ipv6": 452,
+        "ipv4": 510780,
+        "ipv6": 459,
         "cidrs_v4": 112943,
         "cidrs_v6": 0,
-        "all": 623281
+        "all": 624182
       },
       "sources": 13,
       "metadata": "metadata/abuse.json",
@@ -43,16 +43,16 @@
         "ipv4": {
           "path": "feeds/abuse/ipv4.txt",
           "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/abuse/ipv4.txt",
-          "entries": 509886,
-          "sha256": "03938278d06c600a947e6d481bbd75239a94d04726fdefbf0862b993b6fbe238",
-          "bytes": 7257884
+          "entries": 510780,
+          "sha256": "397b22a5add218aa9d48cefb7a9e503880cc5a15a9b3c00b679a407d917db4bf",
+          "bytes": 7270468
         },
         "ipv6": {
           "path": "feeds/abuse/ipv6.txt",
           "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/abuse/ipv6.txt",
-          "entries": 452,
-          "sha256": "c2045da0c8690fa689495201ba4cc2bf68b291392ada66fd855d17cf090973d2",
-          "bytes": 15488
+          "entries": 459,
+          "sha256": "ce73488ac8f5f68ca5f98366af0cfd388118287737b9d30b2ef906764f9831b3",
+          "bytes": 15796
         },
         "ipv4-cidrs": {
           "path": "feeds/abuse/ipv4-cidrs.txt",
@@ -121,13 +121,13 @@
       "name": "Brute Force Sources",
       "description": "IPs performing brute-force authentication attacks across services.",
       "status": "active",
-      "version": "sha256:218bc17d8a5eed9ba6092af4b3740136689432e84e4ac7afc17812eb2033c267",
+      "version": "sha256:3b5bb90f51750fba2f380e9d159d0406bb397307a55595d97769e5e02ba69f31",
       "totals": {
-        "ipv4": 791,
+        "ipv4": 793,
         "ipv6": 0,
         "cidrs_v4": 0,
         "cidrs_v6": 0,
-        "all": 791
+        "all": 793
       },
       "sources": 2,
       "metadata": "metadata/bruteforce.json",
@@ -135,9 +135,9 @@
         "ipv4": {
           "path": "feeds/bruteforce/ipv4.txt",
           "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/bruteforce/ipv4.txt",
-          "entries": 791,
-          "sha256": "cb4dbe8ba174acbb547479e472571b2849b87eebfb41c1897bdb4279acf038fe",
-          "bytes": 11379
+          "entries": 793,
+          "sha256": "85df02276db829f0e1065765685de350aa01fe55aed5b46173b25ecf22c2e417",
+          "bytes": 11404
         },
         "ipv6": {
           "path": "feeds/bruteforce/ipv6.txt",
@@ -259,13 +259,13 @@
       "name": "Credential Stuffing Sources",
       "description": "IPs performing web login brute-force / credential stuffing.",
       "status": "active",
-      "version": "sha256:9ddc61ce8d95a81e59ad5b7d136bf7c7515f4ab304dbd166a3d9047f9ed9e91b",
+      "version": "sha256:d91bd67b416f391c704abb446a15095c5cb063b743c3f861c01048f9753605aa",
       "totals": {
-        "ipv4": 1097,
-        "ipv6": 71,
+        "ipv4": 1166,
+        "ipv6": 72,
         "cidrs_v4": 0,
         "cidrs_v6": 0,
-        "all": 1168
+        "all": 1238
       },
       "sources": 1,
       "metadata": "metadata/credential-stuffing.json",
@@ -273,16 +273,16 @@
         "ipv4": {
           "path": "feeds/credential-stuffing/ipv4.txt",
           "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/credential-stuffing/ipv4.txt",
-          "entries": 1097,
-          "sha256": "d0da27321df583ad539e0172a748d2433e2508c5605f56adfdc29a6578f942b3",
-          "bytes": 15878
+          "entries": 1166,
+          "sha256": "28ade7b048b0a461127686a01ff4ed5f24913ca44d5806a7099de7249cc1a2f9",
+          "bytes": 16774
         },
         "ipv6": {
           "path": "feeds/credential-stuffing/ipv6.txt",
           "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/credential-stuffing/ipv6.txt",
-          "entries": 71,
-          "sha256": "5ad0ab99f8260f03785f174f122e11752ceb5272ba066f233df733753d6728ae",
-          "bytes": 2389
+          "entries": 72,
+          "sha256": "4b225ad85cf29c3ae310be63c3178c3c744e465dfadf0b817419d5b4a873061e",
+          "bytes": 2469
         },
         "ipv4-cidrs": {
           "path": "feeds/credential-stuffing/ipv4-cidrs.txt",
@@ -351,13 +351,13 @@
       "name": "Known Exploited Infrastructure",
       "description": "Confirmed compromised machines and exploited infrastructure.",
       "status": "active",
-      "version": "sha256:d135d2a4456cbbe59c99b74f527d63cb538b4f3fb4a848f07c78eb101a8053ae",
+      "version": "sha256:05ebb843f32f5c28c133d30c21bb1cf4c42fdebe910621e69ee083db272d8173",
       "totals": {
-        "ipv4": 396,
+        "ipv4": 422,
         "ipv6": 0,
         "cidrs_v4": 1612,
         "cidrs_v6": 0,
-        "all": 2008
+        "all": 2034
       },
       "sources": 2,
       "metadata": "metadata/exploited-infrastructure.json",
@@ -365,9 +365,9 @@
         "ipv4": {
           "path": "feeds/exploited-infrastructure/ipv4.txt",
           "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/exploited-infrastructure/ipv4.txt",
-          "entries": 396,
-          "sha256": "5095b05ef42022a5ca83e1725911b32c14cd3f35e00e4c75accb2ee1a5ecd402",
-          "bytes": 5764
+          "entries": 422,
+          "sha256": "556a37abc0ca59360003409aaa9a17ac53b39855eff401acb8f2ab24324b9047",
+          "bytes": 6123
         },
         "ipv6": {
           "path": "feeds/exploited-infrastructure/ipv6.txt",
@@ -380,8 +380,8 @@
           "path": "feeds/exploited-infrastructure/ipv4-cidrs.txt",
           "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/exploited-infrastructure/ipv4-cidrs.txt",
           "entries": 1612,
-          "sha256": "f70317153fcf80e645c9912bb1c9705157a292c62caf85ca11bd0c9ea73817e9",
-          "bytes": 25536
+          "sha256": "1e8173709fc8dffdebb15c97265867a484399e05c70bd99f6cfde61112e8541d",
+          "bytes": 25539
         },
         "ipv6-cidrs": {
           "path": "feeds/exploited-infrastructure/ipv6-cidrs.txt",
@@ -535,13 +535,13 @@
       "name": "Open HTTP Proxies",
       "description": "Open HTTP/HTTPS proxy servers frequently abused for anonymized attacks.",
       "status": "active",
-      "version": "sha256:171c160dfce5e8fff322c57f133c5ed58f694e8f3bfc663dbad7a807c00cf7d7",
+      "version": "sha256:1fdb12071bdc4344c86f2d7adcc0c6412f65b050a19f7b314934c90d839b8a52",
       "totals": {
-        "ipv4": 10233,
+        "ipv4": 10336,
         "ipv6": 0,
         "cidrs_v4": 35,
         "cidrs_v6": 0,
-        "all": 10268
+        "all": 10371
       },
       "sources": 15,
       "metadata": "metadata/http-proxies.json",
@@ -549,9 +549,9 @@
         "ipv4": {
           "path": "feeds/http-proxies/ipv4.txt",
           "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/http-proxies/ipv4.txt",
-          "entries": 10233,
-          "sha256": "de8d2df586db631f5b4435b21f53f46bccdee3380269d632859b823eba001fbc",
-          "bytes": 146282
+          "entries": 10336,
+          "sha256": "f918cedff437ef796a3417634a367f27d3fd1b20b4bc1e48b0eb04909e590a4d",
+          "bytes": 147735
         },
         "ipv6": {
           "path": "feeds/http-proxies/ipv6.txt",
@@ -719,13 +719,13 @@
       "name": "Public Scanners",
       "description": "Internet-wide scanners, probes, and top attacking hosts.",
       "status": "active",
-      "version": "sha256:aabfcbfe7a16c0e708c469878d0fee7a0e9706532fb21054a886aa9ef81d0b42",
+      "version": "sha256:29b0ba0b35b0b295695a72ead38bea7ef39b0b219dfe1c973ce52cab7b900164",
       "totals": {
-        "ipv4": 17839,
+        "ipv4": 17849,
         "ipv6": 0,
         "cidrs_v4": 20,
         "cidrs_v6": 0,
-        "all": 17859
+        "all": 17869
       },
       "sources": 4,
       "metadata": "metadata/scanners.json",
@@ -733,9 +733,9 @@
         "ipv4": {
           "path": "feeds/scanners/ipv4.txt",
           "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/scanners/ipv4.txt",
-          "entries": 17839,
-          "sha256": "81d65f149338dde41d2eab152c0b6995cc242612152bd1a501f1fba6b7999bfc",
-          "bytes": 253028
+          "entries": 17849,
+          "sha256": "638f65ffeb662e15508ae18e0a4d1b51c8f59c73c02b9ac3cb2f524a818bdf48",
+          "bytes": 253365
         },
         "ipv6": {
           "path": "feeds/scanners/ipv6.txt",
@@ -765,13 +765,13 @@
       "name": "SOCKS4 Proxies",
       "description": "Open SOCKS4 proxy servers.",
       "status": "active",
-      "version": "sha256:d00e0bc171e959f42e2f3b5e12207aa8931d74c98339d283bfa391b8b871d5fc",
+      "version": "sha256:9be61f1e511efac76addeffb787ee4a9fae05ce0012d658182beeaa27684babd",
       "totals": {
-        "ipv4": 3623,
+        "ipv4": 3795,
         "ipv6": 0,
         "cidrs_v4": 0,
         "cidrs_v6": 0,
-        "all": 3623
+        "all": 3795
       },
       "sources": 8,
       "metadata": "metadata/socks4-proxies.json",
@@ -779,9 +779,9 @@
         "ipv4": {
           "path": "feeds/socks4-proxies/ipv4.txt",
           "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/socks4-proxies/ipv4.txt",
-          "entries": 3623,
-          "sha256": "0ba8722b66f3c43f20de9fed23128dece017a053f36e9cd6db743b15b23f5276",
-          "bytes": 51955
+          "entries": 3795,
+          "sha256": "0cfd0f8f6ce1a551240f8eafbcf0c6e3a8043323c0cff6440d5b8f08aa4dacc4",
+          "bytes": 54420
         },
         "ipv6": {
           "path": "feeds/socks4-proxies/ipv6.txt",
@@ -811,13 +811,13 @@
       "name": "SOCKS5 Proxies",
       "description": "Open SOCKS5 proxy servers.",
       "status": "active",
-      "version": "sha256:ec890c956da34b49b75a6161fb92cc88449d75569e942e1f8e6f12bcb2576c7b",
+      "version": "sha256:d733fbfea41646f1942f0bf4858b3ff1ab1df1420066da60b17268054b63f60e",
       "totals": {
-        "ipv4": 6521,
+        "ipv4": 6692,
         "ipv6": 0,
         "cidrs_v4": 83,
         "cidrs_v6": 0,
-        "all": 6604
+        "all": 6775
       },
       "sources": 10,
       "metadata": "metadata/socks5-proxies.json",
@@ -825,9 +825,9 @@
         "ipv4": {
           "path": "feeds/socks5-proxies/ipv4.txt",
           "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/socks5-proxies/ipv4.txt",
-          "entries": 6521,
-          "sha256": "232555688b46d55edb610872f2ce92e090a55b8d5ca01a39ad80c9bbc84ed75b",
-          "bytes": 93067
+          "entries": 6692,
+          "sha256": "4f37fcf358f5df38f3d39ec534958144822c83810fbf93e1c9e3663f396cdc14",
+          "bytes": 95544
         },
         "ipv6": {
           "path": "feeds/socks5-proxies/ipv6.txt",
@@ -903,13 +903,13 @@
       "name": "SSH Attackers",
       "description": "IPs attacking SSH services (password guessing, scanning).",
       "status": "active",
-      "version": "sha256:7473ad5798ef2223da77a519e500dd7c0dcfd222843a82afb2853a7d813d6e26",
+      "version": "sha256:9675675833350cee1f6a4e32cbd2f1333f73e63aa669eedc47a3e5c84d6f22e4",
       "totals": {
-        "ipv4": 11049,
-        "ipv6": 11,
+        "ipv4": 11057,
+        "ipv6": 9,
         "cidrs_v4": 0,
         "cidrs_v6": 0,
-        "all": 11060
+        "all": 11066
       },
       "sources": 2,
       "metadata": "metadata/ssh-attackers.json",
@@ -917,16 +917,16 @@
         "ipv4": {
           "path": "feeds/ssh-attackers/ipv4.txt",
           "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/ssh-attackers/ipv4.txt",
-          "entries": 11049,
-          "sha256": "b92477d66f084be1c16d66616b95901724b3d714d266c9ef41ec55fec0c3c2ba",
-          "bytes": 158298
+          "entries": 11057,
+          "sha256": "386a3ad50c9d6ffb16d98b3ae8677ace53bf8c9fd04d831d44d4f72fd9792aab",
+          "bytes": 158384
         },
         "ipv6": {
           "path": "feeds/ssh-attackers/ipv6.txt",
           "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/ssh-attackers/ipv6.txt",
-          "entries": 11,
-          "sha256": "7ab21c8ed6543ea7bbeefb91350f0384b05927afc4bfe2f7b2b9b0cc67167aa6",
-          "bytes": 440
+          "entries": 9,
+          "sha256": "bdec4dd4b06579a3012e268b67383420f198277a908185a552afd22f30f11eb3",
+          "bytes": 368
         },
         "ipv4-cidrs": {
           "path": "feeds/ssh-attackers/ipv4-cidrs.txt",
@@ -949,13 +949,13 @@
       "name": "Tor Exit Nodes",
       "description": "Tor network exit relays.",
       "status": "active",
-      "version": "sha256:6dc8ccdad5a5f9dd1d1990dc5b2a5a29be79ba6f43d8b1adcd9c7a0ed5fc3987",
+      "version": "sha256:e8c5707416ed21903cc5883bf8373e64002ae5674440cfb77d5cb02d7dee567a",
       "totals": {
-        "ipv4": 7495,
+        "ipv4": 7497,
         "ipv6": 619,
         "cidrs_v4": 122,
         "cidrs_v6": 0,
-        "all": 8236
+        "all": 8238
       },
       "sources": 5,
       "metadata": "metadata/tor-exit-nodes.json",
@@ -963,9 +963,9 @@
         "ipv4": {
           "path": "feeds/tor-exit-nodes/ipv4.txt",
           "url": "https://raw.githubusercontent.com/AnAverageBeing/openshield-blocklists/main/feeds/tor-exit-nodes/ipv4.txt",
-          "entries": 7495,
-          "sha256": "75a614b7b1ed64cde55d2a60f34423911cc50168c5e8ee1a03c9a705c3d2e300",
-          "bytes": 104176
+          "entries": 7497,
+          "sha256": "0584e2dde2e7411fadc859b98066a88bea026063707026afe7daabab03f03b1b",
+          "bytes": 104205
         },
         "ipv6": {
           "path": "feeds/tor-exit-nodes/ipv6.txt",
